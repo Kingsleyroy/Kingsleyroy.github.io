@@ -467,7 +467,7 @@ function setupScroll(){
   });
 
   /* general reveals */
-  const revealSel = '.about__text p, .method__intro, .steps li, .project__meta, .project h3, .project > div:last-child > p, .project__tools, .project__link, .service, .why__list li, .ach__list li, .community p, .community .btn, .contact__lead, .contact__links li, .form, .skills__tabs, .skills__cloud, .work__head p, .kicker';
+  const revealSel = '.about__text p, .method__intro, .steps li, .project__meta, .project h3, .project > div:last-child > p, .project__tools, .project__link, .service, .why__list li, .ach__list li, .community p, .community .btn, .contact__lead, .contact__links li, .form, .skill, .work__head p, .kicker';
   gsap.set(revealSel, { y: 46, opacity: 0 });
   ScrollTrigger.batch(revealSel, {
     start: 'top 92%', once: true,
@@ -605,16 +605,8 @@ window.addEventListener('popstate', () => {
 if (location.hash.startsWith('#case-')) window.addEventListener('load', () => setTimeout(() => { const el = document.getElementById(location.hash.slice(1)); if (el) showCase(el); }, 100));
 
 /* =========================================================
-   9. SKILLS FILTER, FORM
+   9. CONTACT FORM
    ========================================================= */
-const cloud = $('#skillCloud');
-$$('.skills__tabs button').forEach(btn => btn.addEventListener('click', () => {
-  $$('.skills__tabs button').forEach(b => b.setAttribute('aria-pressed', b === btn));
-  const g = btn.dataset.group;
-  cloud.classList.toggle('filtering', g !== 'all');
-  $$('span', cloud).forEach(s => s.classList.toggle('on', s.dataset.g === g));
-}));
-
 /* Contact form.
    GitHub Pages can't send email, so the form posts to Formspree (free).
    1. Create a form at https://formspree.io (use kingsleyroy14@gmail.com)
