@@ -1,175 +1,660 @@
-<!DOCTYPE HTML>
-<!--
-	Spectral by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Spectral by HTML5 UP</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="landing is-preload">
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kingsley Roy — Business Analyst &amp; Creative Producer</title>
+<meta name="description" content="Kingsley Roy is a business support officer and business analyst in Canterbury. He maps processes, automates them with Power Automate and Zoho, and reports on them in Power BI. Previously an event and music video producer.">
+<meta property="og:title" content="Kingsley Roy — Business Analyst &amp; Creative Producer">
+<meta property="og:description" content="Process mapping, low-code automation and reporting. Previously an event and music video producer.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#07070d">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%2307070d'/><text x='50%' y='58%' font-family='Arial' font-weight='700' font-size='28' fill='%238b5cf6' text-anchor='middle' dominant-baseline='middle'>KR</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..600&family=Space+Grotesk:wght@400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="is-loading">
+<a class="skip" href="#main">Skip to content</a>
 
-		<!-- Page Wrapper -->
-			<div id="page-wrapper">
+<!-- ============ LOADER ============ -->
+<div class="loader" id="loader" role="status" aria-live="polite">
+  <div class="loader__inner">
+    <div class="loader__mark">K<b>R</b></div>
+    <p class="loader__text">Loading experience <span id="loadPct">0</span>%</p>
+    <div class="loader__bar"><span id="loadBar"></span></div>
+  </div>
+</div>
 
-				<!-- Header -->
-					<header id="header" class="alt">
-						<h1><a href="index.html">Spectral</a></h1>
-						<nav id="nav">
-							<ul>
-								<li class="special">
-									<a href="#menu" class="menuToggle"><span>Menu</span></a>
-									<div id="menu">
-										<ul>
-											<li><a href="index.html">Home</a></li>
-											<li><a href="generic.html">Generic</a></li>
-											<li><a href="elements.html">Elements</a></li>
-											<li><a href="#">Sign Up</a></li>
-											<li><a href="#">Log In</a></li>
-										</ul>
-									</div>
-								</li>
-							</ul>
-						</nav>
-					</header>
+<!-- ============ PAGE TRANSITION CURTAIN ============ -->
+<div class="curtain" id="curtain" aria-hidden="true">
+  <i></i><i></i><i></i><i></i><i></i>
+  <span class="curtain__label" id="curtainLabel"></span>
+</div>
 
-				<!-- Banner -->
-					<section id="banner">
-						<div class="inner">
-							<h2>Kingsley Roy</h2>
-							<p>diverse portfolio that encompasses my expertise in business analytics, study, and managerial experience. <br />
-								I have successfully led teams, implemented effective business solutions,<br />
-								and achieved measurable results <a href="http://html5up.net"></a></p>
-							<ul class="actions special">
-								<li><a href="#" class="button primary">View Below</a></li>
-							</ul>
-						</div>
-						<a href="#one" class="more scrolly">Know More</a>
-					</section>
+<!-- ============ 3D LAYERS ============ -->
+<canvas id="gl" aria-hidden="true"></canvas>
+<div class="veil" id="veil" aria-hidden="true"></div>
+<div class="scrollbar" aria-hidden="true"><span id="scrollBar"></span></div>
+<div class="cursor" id="cursor" aria-hidden="true"><span id="cursorText">View</span></div>
 
-				<!-- One -->
-					<section id="one" class="wrapper style1 special">
-						<div class="inner">
-							<header class="major">
-								<h2>With a deep understanding of data-driven insights,<br />
-									I leverage my analytical skills to identify patterns<br />
-									optimize strategies, and drive informed decision-making</h2>
-								<p>As a seasoned manager, I have successfully led teams, implemented effective business solutions,<br />
-									and achieved measurable results, making me a valuable asset in driving organizational growth and success.</p>
-							</header>
-							<ul class="icons major">
-								<li><span class="icon fa-gem major style1"><span class="label">Lorem</span></span></li>
-								<li><span class="icon fa-heart major style2"><span class="label">Ipsum</span></span></li>
-								<li><span class="icon solid fa-code major style3"><span class="label">Dolor</span></span></li>
-							</ul>
-						</div>
-					</section>
+<!-- ============ NAVBAR ============ -->
+<header class="nav" id="nav">
+  <a href="#top" class="logo" aria-label="Kingsley Roy, back to top">K<b>R</b></a>
+  <nav aria-label="Main">
+    <ul class="nav__links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#method">Method</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="nav__right">
+    <a href="#contact" class="btn btn--solid magnetic">Let's work together</a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
+  </div>
+</header>
 
-				<!-- Two -->
-					<section id="two" class="wrapper alt style2">
-						<section class="spotlight">
-							<div class="image"><img src="images/pic01.jpg" alt="" /></div><div class="content">
-								<h2>Power Bi Dashboard<br />
-								PWC Virual Internship</h2>
-								<p>Created an interactive dashboard using elements such as filters, Slicers and DAX formula. Leveraging the rich visualisation for a deep analysis that enable data discovery on building dynamic dashboards</p>
-							</div>
-						</section>
-						<section class="spotlight">
-							<div class="image"><img src="images/pic02.jpg" alt="" /></div><div class="content">
-								<h2>Tortor dolore feugiat<br />
-								elementum magna</h2>
-								<p>Aliquam ut ex ut augue consectetur interdum. Donec hendrerit imperdiet. Mauris eleifend fringilla nullam aenean mi ligula.</p>
-							</div>
-						</section>
-						<section class="spotlight">
-							<div class="image"><img src="images/pic03.jpg" alt="" /></div><div class="content">
-								<h2>Augue eleifend aliquet<br />
-								sed condimentum</h2>
-								<p></p>
-							</div>
-						</section>
-					</section>
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <a href="#about">About</a>
+  <a href="#method">Method</a>
+  <a href="#work">Work</a>
+  <a href="#skills">Skills</a>
+  <a href="#services">Services</a>
+  <a href="#contact">Contact</a>
+  <p>kingsleyroy14@gmail.com</p>
+</div>
 
-				<!-- Three -->
-					<section id="three" class="wrapper style3 special">
-						<div class="inner">
-							<header class="major">
-								<h2>Accumsan mus tortor nunc aliquet</h2>
-								<p>Aliquam ut ex ut augue consectetur interdum. Donec amet imperdiet eleifend<br />
-								fringilla tincidunt. Nullam dui leo Aenean mi ligula, rhoncus ullamcorper.</p>
-							</header>
-							<ul class="features">
-								<li class="icon fa-paper-plane">
-									<h3>Arcu accumsan</h3>
-									<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
-								</li>
-								<li class="icon solid fa-laptop">
-									<h3>Ac Augue Eget</h3>
-									<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
-								</li>
-								<li class="icon solid fa-code">
-									<h3>Mus Scelerisque</h3>
-									<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
-								</li>
-								<li class="icon solid fa-headphones-alt">
-									<h3>Mauris Imperdiet</h3>
-									<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
-								</li>
-								<li class="icon fa-heart">
-									<h3>Aenean Primis</h3>
-									<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
-								</li>
-								<li class="icon fa-flag">
-									<h3>Tortor Ut</h3>
-									<p>Augue consectetur sed interdum imperdiet et ipsum. Mauris lorem tincidunt nullam amet leo Aenean ligula consequat consequat.</p>
-								</li>
-							</ul>
-						</div>
-					</section>
+<main id="main">
 
-				<!-- CTA -->
-					<section id="cta" class="wrapper style4">
-						<div class="inner">
-							<header>
-								<h2>Arcue ut vel commodo</h2>
-								<p>Aliquam ut ex ut augue consectetur interdum endrerit imperdiet amet eleifend fringilla.</p>
-							</header>
-							<ul class="actions stacked">
-								<li><a href="#" class="button fit primary">Activate</a></li>
-								<li><a href="#" class="button fit">Learn More</a></li>
-							</ul>
-						</div>
-					</section>
+<!-- ============ HERO ============ -->
+<section class="hero" id="top" aria-label="Introduction" data-hue="0">
+  <div class="hero-stage">
+    <div class="hero-bgtext" aria-hidden="true"><span>KINGSLEY</span><span>ROY</span></div>
+    <img class="portrait-fallback" id="portraitFallback" src="images/portrait.webp" alt="Kingsley Roy" width="1267" height="1400" hidden>
+  </div>
+  <div class="hero-stage hero-front">
+    <div class="hero-copy">
+      <div class="hero-left">
+        <p class="hero-role"><i class="dot"></i>Business support officer and business analyst, Canterbury</p>
+        <h1 class="hero-title">
+          <span class="line"><span>Processes that</span></span>
+          <span class="line"><span>run themselves.</span></span>
+          <span class="line"><span class="grad">Numbers that</span></span>
+          <span class="line"><span class="grad">back decisions.</span></span>
+        </h1>
+      </div>
+      <div class="hero-mid" aria-hidden="true"></div>
+      <div class="hero-right">
+        <p class="hero-sub">I map how work actually happens, rebuild it as automated workflows in Power Automate and Zoho, and report on it in Power BI. Before that, six years producing events and music videos.</p>
+        <div class="hero-cta">
+          <a href="#work" class="btn btn--solid magnetic">See my work <span class="arr">→</span></a>
+          <a href="#contact" class="btn magnetic">Let's work together</a>
+        </div>
+        <div class="scroll-cue" id="scrollCue" aria-hidden="true"><span>Scroll to explore</span><i></i></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-				<!-- Footer -->
-					<footer id="footer">
-						<ul class="icons">
-							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-							<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-							<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-						</ul>
-						<ul class="copyright">
-							<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-						</ul>
-					</footer>
+<!-- ============ ABOUT ============ -->
+<section class="section wrap about" id="about" data-hue="1">
+  <div class="about__grid">
+    <h2>What I actually do.</h2>
+    <div class="about__text">
+      <p class="lead">Business support by day, business analysis by instinct: I map how a process really runs, find where it breaks, and rebuild it as an automated workflow with reporting behind it.</p>
+      <p>At Kent County Council I handle business support for a live service: intake and triage of requests, record keeping in SharePoint, supplier and contractor liaison, and the reporting managers rely on. Where a task repeats, I replace it with a Power Automate flow rather than a reminder in someone's diary.</p>
+      <p>The analysis side is the same work done properly: interview the people doing the job, document the as-is process, measure volumes and delays, design the to-be process, build it in low-code tools, test it with the team and check the numbers afterwards.</p>
+      <p>Before this I spent six years in production. At Studio 31 in Chennai I produced over 365 events and 30 conferences, and produced music videos, owning budgets, schedules, crew and suppliers. At The Post Prod I led UK market entry. That side taught me deadlines, and the analysis side taught me why they slip.</p>
+      <p>I moved from Chennai to the UK in 2021 and hold an MSc in Business Analytics from the University of Kent. I'm also a dancer, singer and the founding chairman of a cricket club in Canterbury.</p>
+    </div>
+  </div>
+  <!-- Edit these numbers any time -->
+  <div class="stats">
+    <div class="stat"><b>30%</b><span>market share growth at The Post Prod</span></div>
+    <div class="stat"><b>$5M</b><span>contract secured in UK market entry</span></div>
+    <div class="stat"><b>365+</b><span>events produced at Studio 31</span></div>
+    <div class="stat"><b>18%</b><span>fewer labour hours after Studio 31 went digital</span></div>
+  </div>
+</section>
 
-			</div>
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span>Process mapping</span><span>Power Automate</span><span>Power BI reporting</span><span>Zoho systems</span><span>Event production</span><span>Music video production</span>
+    <span>Process mapping</span><span>Power Automate</span><span>Power BI reporting</span><span>Zoho systems</span><span>Event production</span><span>Music video production</span>
+  </div>
+</div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+<!-- ============ HOW I WORK ============ -->
+<section class="section wrap method" id="method" data-hue="2" aria-labelledby="methodTitle">
+  <div>
+    <h2 id="methodTitle">How I work</h2>
+    <p class="method__intro">The same six steps whether it's a council repair process, a studio's sales pipeline or a live event.</p>
+  </div>
+  <ol class="steps">
+    <li>
+      <h4>Sit with the people doing the job</h4>
+      <p>Requirements come from the person filling in the form at 8am, not from a diagram. I record what they actually do, including the workarounds.</p>
+      <p class="apps">Interviews, shadowing, requirements notes</p>
+    </li>
+    <li>
+      <h4>Map the as-is process</h4>
+      <p>Every step, hand-off, approval and waiting point written down, so it's clear where work stalls and who owns each stage.</p>
+      <p class="apps">Process mapping</p>
+    </li>
+    <li>
+      <h4>Measure it before changing it</h4>
+      <p>Volumes, cycle times, rework and the hours spent on manual updates. Without a baseline there's nothing to prove afterwards.</p>
+      <p class="apps">Excel, SQL, Power BI</p>
+    </li>
+    <li>
+      <h4>Design the to-be process</h4>
+      <p>One source of truth, a status that drives the workflow, automatic notifications, and a rule for every exception the team raised.</p>
+      <p class="apps">Solution design, data model</p>
+    </li>
+    <li>
+      <h4>Build it in low-code tools</h4>
+      <p>Microsoft Forms, SharePoint and Power Automate, or Zoho Creator, CRM, Sign and Books, built on licences the organisation already holds.</p>
+      <p class="apps">Power Automate, SharePoint, Zoho</p>
+    </li>
+    <li>
+      <h4>Test, hand over, then check the numbers</h4>
+      <p>Run it alongside the old way, fix what breaks, write the short guide, train the team, then compare against the baseline.</p>
+      <p class="apps">UAT, documentation, reporting</p>
+    </li>
+  </ol>
+</section>
 
-	</body>
+<!-- ============ SELECTED WORK ============ -->
+<section class="section wrap work" id="work" data-hue="3">
+  <div class="work__head">
+    <h2>Selected work</h2>
+    <p>Three projects where process, data and presentation had to work together.</p>
+  </div>
+
+  <!-- Project 1 -->
+  <a class="project tilt-card" href="#case-kcc" data-case="case-kcc" data-cursor="Read">
+    <div class="project__visual reveal-img" aria-hidden="true">
+      <svg viewBox="0 0 800 550" preserveAspectRatio="xMidYMid slice">
+        <rect width="800" height="550" fill="#141414"/>
+        <g stroke="#3A3A3A" stroke-width="1">
+          <line x1="80" y1="120" x2="720" y2="120"/><line x1="80" y1="220" x2="720" y2="220"/>
+          <line x1="80" y1="320" x2="720" y2="320"/><line x1="80" y1="420" x2="720" y2="420"/>
+        </g>
+        <g fill="#F4F4F2">
+          <rect x="120" y="260" width="46" height="160"/><rect x="210" y="220" width="46" height="200"/>
+          <rect x="300" y="300" width="46" height="120"/><rect x="390" y="180" width="46" height="240"/>
+          <rect x="480" y="150" width="46" height="270"/><rect x="570" y="110" width="46" height="310"/>
+        </g>
+        <polyline points="143,240 233,205 323,270 413,160 503,128 593,90" fill="none" stroke="#F4F4F2" stroke-width="4" stroke-dasharray="14 8"/>
+        <circle cx="593" cy="90" r="9" fill="#F4F4F2"/>
+      </svg>
+    </div>
+    <div>
+      <p class="project__meta">Kent County Council, process automation</p>
+      <h3>Automated facilities management</h3>
+      <p>Replaced email chains and a shared spreadsheet with automated flows that send repairs to the contractor, capture job references and show live status.</p>
+      <ul class="project__tools"><li>Microsoft Forms</li><li>SharePoint</li><li>Power Automate</li></ul>
+      <span class="project__link">Read the case study <span class="arr">→</span></span>
+    </div>
+  </a>
+
+  <!-- Project 2 -->
+  <a class="project tilt-card" href="#case-studio31" data-case="case-studio31" data-cursor="Read">
+    <div class="project__visual reveal-img" aria-hidden="true">
+      <svg viewBox="0 0 800 550" preserveAspectRatio="xMidYMid slice">
+        <rect width="800" height="550" fill="#101019"/>
+        <g fill="none" stroke="#F4F4F2" stroke-width="2">
+          <circle cx="400" cy="275" r="190"/><circle cx="400" cy="275" r="130"/><circle cx="400" cy="275" r="70"/>
+        </g>
+        <g fill="#F4F4F2">
+          <circle cx="400" cy="85" r="14"/><circle cx="590" cy="275" r="14"/><circle cx="400" cy="465" r="14"/><circle cx="210" cy="275" r="14"/>
+          <circle cx="492" cy="160" r="10"/><circle cx="308" cy="390" r="10"/>
+          <circle cx="400" cy="275" r="26"/>
+        </g>
+      </svg>
+    </div>
+    <div>
+      <p class="project__meta">Studio 31, Chennai, digital transformation</p>
+      <h3>Wedding studio, fully digital</h3>
+      <p>Moved a busy wedding and events studio from paper and phone calls to an end-to-end Zoho setup, from first enquiry to final delivery.</p>
+      <ul class="project__tools"><li>Zoho Creator</li><li>Zoho CRM</li><li>Zoho Sign</li><li>Zoho Books</li></ul>
+      <span class="project__link">Read the case study <span class="arr">→</span></span>
+    </div>
+  </a>
+
+  <!-- Project 3 -->
+  <a class="project tilt-card" href="#case-ica" data-case="case-ica" data-cursor="Read">
+    <div class="project__visual reveal-img" aria-hidden="true">
+      <svg viewBox="0 0 800 550" preserveAspectRatio="xMidYMid slice">
+        <rect width="800" height="550" fill="#141414"/>
+        <ellipse cx="400" cy="300" rx="330" ry="210" fill="none" stroke="#3A3A3A" stroke-width="2"/>
+        <ellipse cx="400" cy="300" rx="120" ry="76" fill="none" stroke="#3A3A3A" stroke-width="2"/>
+        <rect x="388" y="200" width="24" height="200" fill="#F4F4F2"/>
+        <circle cx="560" cy="160" r="34" fill="#F4F4F2"/>
+        <path d="M530 150 Q560 170 590 150 M530 170 Q560 150 590 170" stroke="#111111" stroke-width="2" fill="none"/>
+      </svg>
+    </div>
+    <div>
+      <p class="project__meta">Invictas Cricket Association, brand and web</p>
+      <h3>Invictas club website</h3>
+      <p>A landing page that introduces a new Canterbury T20 club, explains how to join and gives sponsors a clear reason to get involved.</p>
+      <ul class="project__tools"><li>Branding</li><li>Web design</li><li>Vercel</li></ul>
+      <span class="project__link">Read the case study <span class="arr">→</span></span>
+    </div>
+  </a>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section class="section wrap skills panel" id="skills" data-hue="1">
+  <h2>What I work with</h2>
+  <div class="skills__tabs" role="group" aria-label="Filter skills">
+    <button type="button" data-group="all" aria-pressed="true">Everything</button>
+    <button type="button" data-group="data" aria-pressed="false">Data</button>
+    <button type="button" data-group="systems" aria-pressed="false">Automation</button>
+    <button type="button" data-group="business" aria-pressed="false">Business</button>
+    <button type="button" data-group="production" aria-pressed="false">Production</button>
+  </div>
+  <p class="skills__cloud" id="skillCloud">
+    <span data-g="data">Excel</span><span data-g="data">Power BI</span><span data-g="data">SQL</span><span data-g="data">Google Analytics</span>
+    <span data-g="systems">Power Automate</span><span data-g="systems">SharePoint</span><span data-g="systems">Microsoft Forms</span><span data-g="systems">Zoho Creator</span><span data-g="systems">Zoho CRM</span><span data-g="systems">Zoho Books</span>
+    <span data-g="business">Process mapping</span><span data-g="business">Requirements gathering</span><span data-g="business">Stakeholder management</span><span data-g="business">Market entry</span>
+    <span data-g="production">Event production</span><span data-g="production">Music video production</span><span data-g="production">Crew and suppliers</span><span data-g="production">Budgets and schedules</span>
+  </p>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="section wrap services" id="services" data-hue="2">
+  <h2>Let's build something worth remembering.</h2>
+  <div class="service"><h3>Process automation</h3><p>Map the process, then rebuild it as a SharePoint list as the single source of truth with Power Automate flows for intake, notifications, status changes and an audit trail.</p><small>Power Automate, SharePoint, Microsoft Forms</small></div>
+  <div class="service"><h3>Reporting and dashboards</h3><p>Agree the definitions first, model the data, then build Power BI and Excel reports that answer the questions managers actually ask.</p><small>Power BI, Excel, SQL</small></div>
+  <div class="service"><h3>CRM and business systems</h3><p>Zoho Creator, CRM, Sign and Books configured around your workflow: lead assignment, follow-up reminders, order forms, e-signature, invoicing and delivery tracking.</p><small>Zoho Creator, CRM, Sign, Books</small></div>
+  <div class="service"><h3>Market entry and growth</h3><p>Market and competitor research, pricing and positioning, and structured outreach for businesses entering the UK or opening a new line of work.</p><small>Business development</small></div>
+  <div class="service"><h3>Event production</h3><p>Budgets, run sheets, crew and supplier coordination and on-site management, from first brief to post-event wrap.</p><small>Production, logistics</small></div>
+  <div class="service"><h3>Music video and content production</h3><p>Producing rather than shooting: pre-production planning, scheduling, crew and locations, and delivery management through to the final cut.</p><small>Production</small></div>
+</section>
+
+<!-- ============ WHY WORK WITH ME ============ -->
+<section class="section wrap why" aria-labelledby="whyTitle">
+  <p class="kicker" id="whyTitle">Why work with me</p>
+  <ul class="why__list">
+    <li>I work inside the process <em>I do the admin job as well as analyse it, so the redesign survives contact with real work.</em></li>
+    <li>Low-code, not locked-in <em>Built on the Microsoft 365 or Zoho licences you already pay for, and documented so your team can maintain it.</em></li>
+    <li>Measured before and after <em>Volumes, delays and hours saved, so the change can be defended.</em></li>
+    <li>Producer's grip on delivery <em>Six years of events and music videos: budgets, schedules and suppliers held to a date.</em></li>
+    <li>Two markets, one view <em>Experience across India and the UK.</em></li>
+  </ul>
+</section>
+
+<!-- ============ ACHIEVEMENTS ============ -->
+<section class="section wrap ach" aria-labelledby="achTitle">
+  <div class="ach__grid">
+    <h2 id="achTitle">Credentials</h2>
+    <ul class="ach__list">
+      <li><b>MSc Business Analytics</b><span>University of Kent, Merit</span></li>
+      <li><b>BBA</b><span>SRM University of Arts and Science, Chennai</span></li>
+      <li><b>Power BI Internship</b><span>PwC Europe</span></li>
+      <li><b>Excel for Business Analysts</b><span>IIBA</span></li>
+      <li><b>CBIP certification</b><span>Udemy</span></li>
+      <li><b>Founding Chairman</b><span>Invictas Cricket Association</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ COMMUNITY ============ -->
+<section class="section wrap community panel" aria-labelledby="commTitle">
+  <div class="community__grid">
+    <h2 id="commTitle">Building beyond work.</h2>
+    <div>
+      <p>I founded the Invictas Cricket Association, a T20 club in Canterbury affiliated with the Kent Cricket Board, to give local players a team and a community.</p>
+      <p>I also bring Tamil culture, dance and music into everything I produce.</p>
+      <a class="btn" href="#contact">Get involved <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS: add real quotes here when you have them. Left out on purpose so nothing is invented. -->
+
+<!-- ============ CONTACT ============ -->
+<section class="section wrap contact" id="contact" data-hue="0">
+  <div class="contact__grid">
+    <div>
+      <h2>Have an idea? Let's build it.</h2>
+      <p class="contact__lead">Whether you need a clear dashboard, a better way to run your business or an event people talk about, let's make something people remember.</p>
+      <a class="btn btn--solid" href="mailto:kingsleyroy14@gmail.com">Start a project <span class="arr">→</span></a>
+      <ul class="contact__links">
+        <li><a href="mailto:kingsleyroy14@gmail.com"><span>Email</span><span>kingsleyroy14@gmail.com</span></a></li>
+        <li><a href="https://www.linkedin.com/in/kingsleyroy" target="_blank" rel="noopener"><span>LinkedIn</span><span>/in/kingsleyroy</span></a></li>
+      </ul>
+    </div>
+    <form class="form" id="contactForm" novalidate>
+      <div class="field"><label for="fName">Name</label><input id="fName" name="name" autocomplete="name" required></div>
+      <div class="field"><label for="fEmail">Email</label><input id="fEmail" name="email" type="email" autocomplete="email" required></div>
+      <div class="field"><label for="fType">What do you need?</label>
+        <select id="fType" name="type">
+          <option>Process automation</option>
+          <option>Dashboards and reporting</option>
+          <option>CRM and process digitalisation</option>
+          <option>Market entry and growth</option>
+          <option>Events and creative direction</option>
+          <option>Films and brand content</option>
+          <option>Something else</option>
+        </select>
+      </div>
+      <div class="field"><label for="fMsg">Message</label><textarea id="fMsg" name="message" required></textarea></div>
+      <div><button class="btn btn--solid" type="submit">Send message <span class="arr">→</span></button></div>
+      <p class="form__note" id="formNote" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="section wrap final panel">
+  <h2>Your next project could start here.</h2>
+  <p>Let's make it happen.</p>
+  <a class="btn" href="#contact">Start a project <span class="arr">→</span></a>
+</section>
+</main>
+
+<!-- =========================================================
+     CASE STUDY 1 — KENT COUNTY COUNCIL
+     ========================================================= -->
+<article class="case" id="case-kcc" role="dialog" aria-modal="true" aria-labelledby="t-kcc" hidden data-lenis-prevent>
+  <div class="case__bar"><button class="case__close" type="button">← Back to work</button><span>Case study</span></div>
+
+  <header class="wrap case__hero">
+    <p class="kicker">Kent County Council, Family Hub Programme</p>
+    <h2 id="t-kcc">Automated facilities management</h2>
+    <p class="case__intro">A no-code Microsoft 365 system that takes an office repair from the first report to the contractor's closure email, with no manual updates in between.</p>
+    <dl class="case__facts">
+      <div><dt>My role</dt><dd>Designed, built and rolled out the whole system</dd></div>
+      <div><dt>Tools</dt><dd>Microsoft Forms, SharePoint, Power Automate, Outlook shared mailbox</dd></div>
+      <div><dt>Users</dt><dd>Hub staff, business support, managers and the facilities contractor</dd></div>
+    </dl>
+  </header>
+
+  <section class="wrap case__block">
+    <h3>The problem</h3>
+    <div>
+      <p>Repairs were reported by email and tracked in a shared spreadsheet. Business support had to forward every request to the facilities contractor, wait for a reply, copy the job reference into the sheet and chase for updates.</p>
+      <ul>
+        <li>Manual entries were often missed, mistyped or out of date.</li>
+        <li>Out-of-date records caused duplicate call-outs, so engineers sometimes visited twice for the same job.</li>
+        <li>Nobody could see the live status of a job without asking business support.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="wrap case__block">
+    <h3>How the system fits together</h3>
+    <div>
+      <p>Microsoft Forms is the front door, a SharePoint list is the single source of truth, and three Power Automate flows move each job forward by reading and sending email from one central shared mailbox.</p>
+    </div>
+    <div class="flow" aria-label="System flow">
+      <div class="flow__node"><b>Microsoft Forms</b><small>Staff report a repair</small></div>
+      <div class="flow__node key"><b>SharePoint list</b><small>Office Repair Requests</small></div>
+      <div class="flow__node"><b>Flow 1</b><small>Emails the contractor</small></div>
+      <div class="flow__node"><b>Flow 2</b><small>Captures the call reference</small></div>
+      <div class="flow__node"><b>Flow 3</b><small>Closes the job and tells staff</small></div>
+      <div class="flow__node key"><b>Manager view</b><small>Live status by job</small></div>
+    </div>
+  </section>
+
+  <section class="wrap case__block">
+    <h3>How I built it</h3>
+    <ol class="steps">
+      <li>
+        <h4>Designed the SharePoint list</h4>
+        <p>Created an "Office Repair Requests" list with columns for title, repair type, location, description, urgency, requested by, status and call reference. Choice columns keep repair types and urgency consistent, and Status drives the whole workflow.</p>
+        <p class="apps">SharePoint</p>
+      </li>
+      <li>
+        <h4>Built a simple form for staff</h4>
+        <p>Staff report issues through a Microsoft Form called "Skanska Reporting", so they never touch the list directly. A Power Automate flow triggers on each new response, reads the answers and creates a matching list item.</p>
+        <p class="apps">Microsoft Forms, Power Automate</p>
+      </li>
+      <li>
+        <h4>Flow 1: send the request to the contractor</h4>
+        <p>Triggered when a new item is created. It sends a formatted email to the contractor's helpdesk from the team's central shared mailbox, so replies come back to one place, then sets Status to "Email sent".</p>
+        <p>Multi-select choice fields came through as raw text like <code>["Plumbing"]</code>, so I cleaned them with an expression before adding them to the email:</p>
+        <span class="code">replace(replace(string(triggerBody()?['RepairType/Value']),'["',''),'"]','')</span>
+        <p class="apps">Power Automate, Outlook shared mailbox</p>
+      </li>
+      <li>
+        <h4>Flow 2: capture the job reference</h4>
+        <p>Watches the shared mailbox for new emails from the contractor. A condition checks whether the body contains "Call reference". If it does, the flow extracts the reference number into a variable, writes it to the matching list item and changes Status to "Job in progress".</p>
+        <p>Variables are initialised at the top of the flow and set inside the condition's "Yes" branch, because Power Automate doesn't allow initialising a variable inside a condition.</p>
+        <p class="apps">Power Automate, expressions, variables</p>
+      </li>
+      <li>
+        <h4>Flow 3: close the job</h4>
+        <p>Looks for the contractor's closure emails, which follow the pattern "Call reference: 000000 - CLOSED". It finds the list item with that reference, sets Status to "Completed" and emails the person who reported the repair.</p>
+        <p class="apps">Power Automate, SharePoint</p>
+      </li>
+      <li>
+        <h4>Gave managers a live view</h4>
+        <p>Added a Manager Dashboard view on the list, grouped by Status, so anyone can see what's been sent, what's in progress and what's done without asking.</p>
+        <p class="apps">SharePoint views</p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="wrap case__block">
+    <h3>Results</h3>
+    <div class="results">
+      <div><b>None</b><span>of the manual spreadsheet updates that caused errors</span></div>
+      <div><b>No</b><span>more duplicate engineer visits from stale records</span></div>
+      <div><b>Live</b><span>job status for staff and managers</span></div>
+      <div><b>Less</b><span>chasing and admin for business support</span></div>
+    </div>
+  </section>
+
+  <a class="case__next" href="#case-studio31" data-case="case-studio31"><small>Next case study</small><strong>Wedding studio, fully digital →</strong></a>
+</article>
+
+<!-- =========================================================
+     CASE STUDY 2 — STUDIO 31
+     ========================================================= -->
+<article class="case" id="case-studio31" role="dialog" aria-modal="true" aria-labelledby="t-s31" hidden data-lenis-prevent>
+  <div class="case__bar"><button class="case__close" type="button">← Back to work</button><span>Case study</span></div>
+
+  <header class="wrap case__hero">
+    <p class="kicker">Studio 31, Chennai</p>
+    <h2 id="t-s31">Wedding studio, fully digital</h2>
+    <p class="case__intro">An end-to-end Zoho system that runs a wedding and events studio from the first website enquiry to the final download, replacing spreadsheets, manual follow-ups and scattered cloud folders.</p>
+    <dl class="case__facts">
+      <div><dt>My role</dt><dd>Started in sales, became production manager and led the move to digital</dd></div>
+      <div><dt>Tools</dt><dd>Zoho Creator, Zoho CRM, Zoho Sign, Zoho Meeting, Zoho Books, Deluge</dd></div>
+      <div><dt>Teams connected</dt><dd>Sales, production, crew, finance, post-production and clients</dd></div>
+    </dl>
+  </header>
+
+  <section class="wrap case__block">
+    <h3>The problem</h3>
+    <div>
+      <p>Every stage of the business ran on Excel, phone calls and reminders people had to remember. Enquiries were logged by hand, follow-ups slipped, contracts went back and forth over email, and footage was shared through several cloud apps.</p>
+      <ul>
+        <li>Sales had no reliable way to see which leads were owned or due a follow-up.</li>
+        <li>Production often heard about a booking late, with incomplete client details.</li>
+        <li>Finance and post-production had no clear signal of when an event was finished.</li>
+        <li>Clients had to ask for updates and chase for their final files.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="wrap case__block">
+    <h3>How the system fits together</h3>
+    <div>
+      <p>Zoho Creator became the operations hub, with a dashboard for each role. Each hand-off between teams is triggered by a record changing stage, using Creator workflows and Deluge scripts, with other Zoho apps plugged in for contracts, meetings, payments and post-production.</p>
+    </div>
+    <div class="flow" aria-label="System flow">
+      <div class="flow__node"><b>Website form</b><small>Client enquiry</small></div>
+      <div class="flow__node key"><b>Zoho Creator</b><small>Leads, orders, crew, dashboards</small></div>
+      <div class="flow__node"><b>Zoho Sign</b><small>Client agreement</small></div>
+      <div class="flow__node"><b>Zoho Meeting</b><small>Planning call and minutes</small></div>
+      <div class="flow__node"><b>Zoho Books</b><small>Invoice and payment</small></div>
+      <div class="flow__node"><b>Zoho CRM</b><small>Post-production tracking</small></div>
+      <div class="flow__node key"><b>Client dashboard</b><small>Live status and downloads</small></div>
+    </div>
+  </section>
+
+  <section class="wrap case__block">
+    <h3>The process, step by step</h3>
+    <ol class="steps">
+      <li>
+        <h4>Enquiry capture</h4>
+        <p>The enquiry form on the studio website is connected to Zoho Creator. Each submission creates a lead record with the client's details, event type, date and venue, and lands in an unassigned leads queue.</p>
+        <p class="apps">Website form, Zoho Creator</p>
+      </li>
+      <li>
+        <h4>Lead self-assignment</h4>
+        <p>Salespeople pick up leads from the queue. Claiming a lead sets them as the owner and moves the record onto their personal sales dashboard, so every lead has one clear owner.</p>
+        <p class="apps">Zoho Creator dashboards, Deluge</p>
+      </li>
+      <li>
+        <h4>Automated nurturing</h4>
+        <p>Based on the lead's stage, scheduled workflows create email follow-up reminders and call reminders for the owner, so no enquiry is left waiting and client questions get a prompt answer.</p>
+        <p class="apps">Zoho Creator schedules, email notifications</p>
+      </li>
+      <li>
+        <h4>Order form on closing the deal</h4>
+        <p>Once a client confirms, the salesperson submits an order form with the package, event dates, venue and agreed value. Submitting it converts the lead into an order and routes it to the production manager's dashboard.</p>
+        <p class="apps">Zoho Creator forms and workflows</p>
+      </li>
+      <li>
+        <h4>Digital agreement</h4>
+        <p>At the same time, the client is emailed the service agreement through Zoho Sign, pre-filled from the order. The signed status is written back to the order, and the project officially starts once it's signed.</p>
+        <p class="apps">Zoho Sign</p>
+      </li>
+      <li>
+        <h4>Planning meeting and minutes</h4>
+        <p>The production manager gets a meeting reminder and runs the client planning call on Zoho Meeting. The call is recorded, and the minutes of the meeting are emailed to the client straight afterwards.</p>
+        <p class="apps">Zoho Meeting</p>
+      </li>
+      <li>
+        <h4>Crew assignment and briefing</h4>
+        <p>From the dashboard, the production manager uses an assignment link to pick the crew for each event. The assigned crew receive the minutes and the client brief, so everyone arrives with the same details.</p>
+        <p class="apps">Zoho Creator</p>
+      </li>
+      <li>
+        <h4>Event completion</h4>
+        <p>After the event, the crew mark it as completed on the order. That single update notifies finance and moves the order to billing.</p>
+        <p class="apps">Zoho Creator</p>
+      </li>
+      <li>
+        <h4>Invoicing and payment</h4>
+        <p>Finance raises the invoice and sends the client a payment request from Zoho Books. When the payment is received it's recorded in Zoho Books, and the paid status syncs back to the order.</p>
+        <p class="apps">Zoho Books</p>
+      </li>
+      <li>
+        <h4>Post-production</h4>
+        <p>Confirmed payment hands the project to post-production, tracked in Zoho CRM. The team sets a delivery deadline and allocates the footage to editors, with progress visible to everyone.</p>
+        <p class="apps">Zoho CRM</p>
+      </li>
+      <li>
+        <h4>Delivery to the client</h4>
+        <p>When the edits are ready, they're published to the client's dashboard, where the client can follow progress and download the final deliverables.</p>
+        <p class="apps">Client dashboard in Zoho Creator</p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="wrap case__block">
+    <h3>Results</h3>
+    <div class="results">
+      <div><b>18%</b><span>fewer labour hours across the business</span></div>
+      <div><b>20%</b><span>rise in overall productivity</span></div>
+      <div><b>1 year</b><span>to recover the cost of the transition through automation</span></div>
+      <div><b>Live</b><span>updates for clients through their own dashboard</span></div>
+    </div>
+    <div></div>
+    <div><p style="margin-top:24px">Sales, production and post-production now work from the same records, so hand-offs are visible, follow-ups happen on time and client issues are picked up quickly.</p></div>
+  </section>
+
+  <a class="case__next" href="#case-ica" data-case="case-ica"><small>Next case study</small><strong>Invictas club website →</strong></a>
+</article>
+
+<!-- =========================================================
+     CASE STUDY 3 — INVICTAS
+     ========================================================= -->
+<article class="case" id="case-ica" role="dialog" aria-modal="true" aria-labelledby="t-ica" hidden data-lenis-prevent>
+  <div class="case__bar"><button class="case__close" type="button">← Back to work</button><span>Case study</span></div>
+
+  <header class="wrap case__hero">
+    <p class="kicker">Invictas Cricket Association, Canterbury</p>
+    <h2 id="t-ica">Invictas club website</h2>
+    <p class="case__intro">A landing page that brings fixtures, live scores, club news and player feedback together in one place for a new T20 club.</p>
+    <dl class="case__facts">
+      <div><dt>My role</dt><dd>Founding chairman, planned and built the site as a volunteer project</dd></div>
+      <div><dt>Built with</dt><dd>Single-page website, hosted on Vercel</dd></div>
+      <div><dt>Audience</dt><dd>Players, committee, sponsors and new members</dd></div>
+    </dl>
+  </header>
+
+  <section class="wrap case__block">
+    <h3>The problem</h3>
+    <div>
+      <p>The club's only online presence was a basic Play-Cricket page. Scores, news and updates were spread across different places, and players had no simple way to share ideas or concerns with the committee.</p>
+    </div>
+  </section>
+
+  <section class="wrap case__block">
+    <h3>How I built it</h3>
+    <ol class="steps">
+      <li>
+        <h4>Planned what the club needed</h4>
+        <p>Listed what players, the committee and sponsors look for most: upcoming fixtures, live scores, club news and a way to get in touch.</p>
+      </li>
+      <li>
+        <h4>Designed the club's look</h4>
+        <p>Built the page around the Invictas identity so it feels like an established club, not a default template.</p>
+      </li>
+      <li>
+        <h4>Built the key sections</h4>
+        <p>Fixtures, live scores, club activities and news all sit on one page, with a feedback and suggestion box so players can reach the committee directly.</p>
+      </li>
+      <li>
+        <h4>Published and shared it</h4>
+        <p>Deployed the site on Vercel and shared the link with players and supporters as the club's main home online.</p>
+        <p class="apps">Vercel</p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="wrap case__block">
+    <h3>Results</h3>
+    <div>
+      <ul>
+        <li>Raised the club's standard and how it presents itself to players and sponsors.</li>
+        <li>Live scores and club activities now sit under one roof.</li>
+        <li>The feedback box has improved communication between the committee and players.</li>
+      </ul>
+      <p style="margin-top:28px"><a class="btn btn--solid" href="https://invictas-website.vercel.app" target="_blank" rel="noopener">Visit the live site <span class="arr">↗</span></a></p>
+    </div>
+  </section>
+
+  <a class="case__next" href="#case-kcc" data-case="case-kcc"><small>Next case study</small><strong>Automated facilities management →</strong></a>
+</article>
+
+<footer class="footer">
+  <a href="#top" class="logo">K<b>R</b></a>
+  <p>Made in Canterbury with curiosity and care</p>
+  <div class="footer__social">
+    <a href="https://www.linkedin.com/in/kingsleyroy" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="mailto:kingsleyroy14@gmail.com">Email</a>
+    <span>© 2026</span>
+  </div>
+</footer>
+
+
+<script src="js/vendor/three.min.js"></script>
+<script src="js/vendor/gsap.min.js"></script>
+<script src="js/vendor/ScrollTrigger.min.js"></script>
+<script src="js/vendor/lenis.min.js"></script>
+<script src="js/main.js"></script>
+</body>
 </html>
