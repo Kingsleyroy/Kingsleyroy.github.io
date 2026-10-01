@@ -33,6 +33,9 @@ function updateAccent(){
    1. LOADER
    ========================================================= */
 const loadBar = $('#loadBar'), loadPct = $('#loadPct');
+let seen = false;
+try { seen = sessionStorage.getItem('kr-seen') === '1'; sessionStorage.setItem('kr-seen', '1'); } catch (e) {}
+if (seen) $('#loader').style.display = 'none';   // repeat visit in the same session: no loader
 let loadValue = 0;
 function setLoad(p){
   loadValue = Math.max(loadValue, p);
@@ -43,9 +46,9 @@ let loadDone = false;
 function finishLoad(){
   if (loadDone) return; loadDone = true;
   setLoad(1);
-  setTimeout(revealSite, 350);
+  setTimeout(revealSite, 120);
 }
-setTimeout(finishLoad, 7000); // safety net
+setTimeout(finishLoad, 2500); // safety net: never keep visitors waiting
 
 /* =========================================================
    2. THREE.JS SCENE
@@ -385,10 +388,10 @@ function revealSite(){
   gsap.set('.hero-bgtext span', { yPercent: 40, opacity: 0 });
   gsap.set('.hero-role, .hero-sub, .hero-cta, .scroll-cue, .nav', { opacity: 0, y: 18 });
   const tl = gsap.timeline();
-  tl.to('.loader__inner', { y: -30, opacity: 0, duration: .5, ease: 'power2.in' })
-    .to(loader, { clipPath: 'inset(0 0 100% 0)', duration: .9, ease: 'power4.inOut' }, '-=.1')
+  tl.to('.loader__inner', { y: -20, opacity: 0, duration: .3, ease: 'power2.in' })
+    .to(loader, { clipPath: 'inset(0 0 100% 0)', duration: .6, ease: 'power4.inOut' }, '-=.1')
     .set(loader, { display: 'none' });
-  if (gl) tl.to(gl.intro, { v: 1, duration: 2.4, ease: 'power3.out' }, '-=.6');
+  if (gl) tl.to(gl.intro, { v: 1, duration: 1.8, ease: 'power3.out' }, '-=.4');
   tl.to('.hero-bgtext span', { yPercent: 0, opacity: 1, duration: 1.4, ease: 'power4.out', stagger: .12 }, '-=2')
     .to(lines, { yPercent: 0, duration: 1.1, ease: 'power4.out', stagger: .09 }, '-=1.6')
     .to('.hero-role, .hero-sub, .hero-cta, .scroll-cue, .nav', { opacity: 1, y: 0, duration: .9, ease: 'power3.out', stagger: .07, clearProps: 'transform' }, '-=1');
@@ -464,7 +467,7 @@ function setupScroll(){
   });
 
   /* general reveals */
-  const revealSel = '.about__text p, .method__intro, .steps li, .project__meta, .project h3, .project > div:last-child > p, .project__tools, .project__link, .service, .why__list li, .ach__list li, .community p, .community .btn, .contact__lead, .contact__links li, .form, .skills__tabs, .skills__cloud, .final p, .final .btn, .work__head p, .kicker';
+  const revealSel = '.about__text p, .method__intro, .steps li, .project__meta, .project h3, .project > div:last-child > p, .project__tools, .project__link, .service, .why__list li, .ach__list li, .community p, .community .btn, .contact__lead, .contact__links li, .form, .skills__tabs, .skills__cloud, .work__head p, .kicker';
   gsap.set(revealSel, { y: 46, opacity: 0 });
   ScrollTrigger.batch(revealSel, {
     start: 'top 92%', once: true,
@@ -612,18 +615,40 @@ $$('.skills__tabs button').forEach(btn => btn.addEventListener('click', () => {
   $$('span', cloud).forEach(s => s.classList.toggle('on', s.dataset.g === g));
 }));
 
-$('#contactForm').addEventListener('submit', e => {
+/* Contact form.
+   GitHub Pages can't send email, so the form posts to Formspree (free).
+   1. Create a form at https://formspree.io (use kingsleyroy14@gmail.com)
+   2. Paste its ID (the part after /f/ in the endpoint URL) below.
+   Until an ID is set, the form falls back to opening the visitor's email app. */
+const FORMSPREE_ID = '';
+
+$('#contactForm').addEventListener('submit', async e => {
   e.preventDefault();
-  const el = e.target.elements, note = $('#formNote');
+  const form = e.target, el = form.elements, note = $('#formNote'), btn = $('button[type=submit]', form);
   const name = el.name.value.trim(), email = el.email.value.trim(), msg = el.message.value.trim();
   if (!name || !email || !msg || !el.email.checkValidity()){
     note.textContent = 'Add your name, a valid email and a message, then send again.';
     return;
   }
-  const subject = encodeURIComponent(`New enquiry: ${el.type.value}`);
-  const body = encodeURIComponent(`${msg}\n\n${name}\n${email}`);
-  window.location.href = `mailto:kingsleyroy14@gmail.com?subject=${subject}&body=${body}`;
-  note.textContent = 'Your email app should open with the message ready to send.';
+  if (el._gotcha.value) return;   // spam bot
+  if (!FORMSPREE_ID){
+    const subject = encodeURIComponent(`New enquiry: ${el.type.value}`);
+    const body = encodeURIComponent(`${msg}\n\n${name}\n${email}`);
+    window.location.href = `mailto:kingsleyroy14@gmail.com?subject=${subject}&body=${body}`;
+    note.textContent = 'Your email app should open with the message ready to send.';
+    return;
+  }
+  btn.disabled = true; note.textContent = 'Sending…';
+  try {
+    const res = await fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+      method: 'POST', headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, type: el.type.value, message: msg, _subject: `Portfolio enquiry: ${el.type.value}` })
+    });
+    if (!res.ok) throw new Error(res.status);
+    form.reset(); note.textContent = 'Thanks, your message has been sent. I will reply soon.';
+  } catch (err){
+    note.textContent = 'Sorry, that did not send. Please email kingsleyroy14@gmail.com directly.';
+  } finally { btn.disabled = false; }
 });
 
 /* =========================================================

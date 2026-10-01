@@ -152,7 +152,7 @@ body::after{ /* film grain */
    ABOUT
    ========================================================= */
 .about__grid{display:grid;grid-template-columns:1fr 1.3fr;gap:clamp(30px,6vw,110px);align-items:start}
-.about h2,.work__head h2,.contact h2,.community h2,.final h2{font-size:clamp(46px,7vw,120px)}
+.about h2,.work__head h2,.contact h2,.community h2{font-size:clamp(46px,7vw,120px)}
 .about__text p{margin:0 0 1.1em;max-width:60ch;color:#c9c9d6}
 .about__text .lead{font-family:var(--display);font-weight:500;font-size:clamp(22px,2vw,30px);line-height:1.35;letter-spacing:-.02em;color:var(--ink)}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:clamp(60px,9vh,110px)}
@@ -225,7 +225,7 @@ body::after{ /* film grain */
 }
 
 /* =========================================================
-   GLASS PANELS (skills, community, final)
+   GLASS PANELS (skills, community)
    ========================================================= */
 .panel{margin-inline:var(--pad);padding-inline:clamp(24px,5vw,80px);border:1px solid var(--rule);border-radius:36px;
   background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.02));backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);overflow:hidden}
@@ -298,9 +298,6 @@ body::after{ /* film grain */
 .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-bottom-color:var(--accent);box-shadow:0 1px 0 var(--accent)}
 .form__note{font-size:.92rem;color:var(--muted);min-height:1.5em;margin:0}
 @media (max-width:900px){.contact__grid{grid-template-columns:1fr}}
-.final{text-align:center;margin-bottom:clamp(40px,8vh,100px)}
-.final h2{font-size:clamp(44px,8vw,140px);max-width:12ch;margin-inline:auto}
-.final p{color:var(--muted);margin:26px auto 36px;font-size:1.15rem}
 .footer{position:relative;z-index:3;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px;padding:30px var(--pad);border-top:1px solid var(--rule);font-family:var(--display);font-size:.92rem;background:rgba(7,7,13,.7)}
 .footer p{margin:0;color:var(--muted)}
 .footer__social{display:flex;gap:20px;justify-content:flex-end;color:var(--muted)}
