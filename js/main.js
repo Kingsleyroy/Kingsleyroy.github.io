@@ -608,11 +608,10 @@ if (location.hash.startsWith('#case-')) window.addEventListener('load', () => se
    9. CONTACT FORM
    ========================================================= */
 /* Contact form.
-   GitHub Pages can't send email, so the form posts to Formspree (free).
-   1. Create a form at https://formspree.io (use kingsleyroy14@gmail.com)
-   2. Paste its ID (the part after /f/ in the endpoint URL) below.
-   Until an ID is set, the form falls back to opening the visitor's email app. */
-const FORMSPREE_ID = '';
+   GitHub Pages can't send email, so the form posts to FormSubmit (free, no account).
+   The first message sent triggers a one-time activation email to the inbox below;
+   click "Activate Form" in it and every later message arrives as a normal email. */
+const CONTACT_EMAIL = 'kingsleyroy14@gmail.com';
 
 $('#contactForm').addEventListener('submit', async e => {
   e.preventDefault();
@@ -623,23 +622,18 @@ $('#contactForm').addEventListener('submit', async e => {
     return;
   }
   if (el._gotcha.value) return;   // spam bot
-  if (!FORMSPREE_ID){
-    const subject = encodeURIComponent(`New enquiry: ${el.type.value}`);
-    const body = encodeURIComponent(`${msg}\n\n${name}\n${email}`);
-    window.location.href = `mailto:kingsleyroy14@gmail.com?subject=${subject}&body=${body}`;
-    note.textContent = 'Your email app should open with the message ready to send.';
-    return;
-  }
   btn.disabled = true; note.textContent = 'Sending…';
   try {
-    const res = await fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+    const res = await fetch('https://formsubmit.co/ajax/' + CONTACT_EMAIL, {
       method: 'POST', headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, email, type: el.type.value, message: msg, _subject: `Portfolio enquiry: ${el.type.value}` })
+      body: JSON.stringify({ name, email, type: el.type.value, message: msg,
+        _subject: `Portfolio enquiry: ${el.type.value}`, _replyto: email, _template: 'table', _captcha: 'false' })
     });
-    if (!res.ok) throw new Error(res.status);
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok || String(data.success) !== 'true') throw new Error(data.message || res.status);
     form.reset(); note.textContent = 'Thanks, your message has been sent. I will reply soon.';
   } catch (err){
-    note.textContent = 'Sorry, that did not send. Please email kingsleyroy14@gmail.com directly.';
+    note.textContent = `Sorry, that did not send. Please email ${CONTACT_EMAIL} directly.`;
   } finally { btn.disabled = false; }
 });
 
