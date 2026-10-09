@@ -373,3 +373,18 @@ code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.9em;color:var(
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none !important;transition-duration:.01ms !important}
 }
+
+/* Featured service: small business digitalisation */
+.service--feature{display:block;padding:clamp(28px,4vw,48px) clamp(20px,3vw,40px);margin:0 -20px clamp(20px,3vh,40px);background:var(--glass);border:1px solid var(--rule);border-radius:24px}
+.service--feature:hover{translate:0 0;background:var(--glass-2)}
+.service--feature h3{font-size:clamp(28px,3.6vw,58px);max-width:20ch;margin:.2em 0 .5em}
+.service--feature > p{max-width:62ch}
+.service__tag{font-family:var(--display);font-size:.88rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)!important}
+.service__steps{list-style:none;counter-reset:step;padding:0;margin:clamp(24px,4vh,40px) 0;display:grid;grid-template-columns:repeat(5,1fr);gap:20px}
+.service__steps li{counter-increment:step;border-top:1px solid var(--rule);padding-top:14px}
+.service__steps b{display:block;font-family:var(--display);font-size:1.15rem;margin-bottom:6px}
+.service__steps b::before{content:counter(step,decimal-leading-zero) "  ";color:var(--accent)}
+.service__steps span{color:var(--muted);font-size:.95rem;line-height:1.5}
+.service__proof a{color:var(--accent);white-space:nowrap}
+.service--feature small{display:block;margin-top:18px;text-align:left}
+@media (max-width:900px){.service__steps{grid-template-columns:1fr}}
