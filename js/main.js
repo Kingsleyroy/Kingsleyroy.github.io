@@ -441,7 +441,7 @@ function setupScroll(){
   });
 
   /* general reveals */
-  const revealSel = '.about__text p, .method__intro, .steps li, .project__meta, .project h3, .project > div:last-child > p, .project__tools, .project__link, .tl__item, .ach__list li, .beyond, .contact__lead, .contact__note, .contact__links li, .form, .skill, .work__head p, .kicker';
+  const revealSel = '.about__text p, .method__intro, .steps li, .project__meta, .project h3, .project > div:last-child > p, .project__tools, .project__link, .tl__item, .points__title, .points li, .ach__list li, .beyond, .contact__lead, .contact__note, .contact__links li, .form, .skill, .work__head p, .kicker';
   gsap.set(revealSel, { y: 46, opacity: 0 });
   ScrollTrigger.batch(revealSel, {
     start: 'top 92%', once: true,

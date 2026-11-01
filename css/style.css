@@ -437,3 +437,12 @@ body::after{opacity:.025}                                  /* quieter grain */
   .hero-role{font-size:.8rem;align-items:flex-start;line-height:1.4}
   .hero-role .dot{margin-top:.4em}
 }
+
+.points__title{font-size:clamp(24px,2.6vw,38px);margin:0 0 20px}
+.points{list-style:none;margin:0 0 clamp(40px,6vh,70px);padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.points li{padding:22px 24px;border:1px solid var(--rule);border-radius:20px;background:var(--glass);transition:translate .5s var(--ease),border-color .4s}
+.points li:hover{translate:0 -4px;border-color:var(--accent)}
+.points b{display:block;font-family:var(--display);font-weight:600;font-size:1.15rem;margin-bottom:6px}
+.points span{color:#d8d8e2;font-size:.95rem;line-height:1.55}
+@media (max-width:900px){.points{grid-template-columns:1fr}}
+.points li:last-child:nth-child(odd){grid-column:1/-1}
