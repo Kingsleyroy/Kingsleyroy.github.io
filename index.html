@@ -8,8 +8,11 @@
 <meta property="og:title" content="Kingsley Roy — Business Analyst &amp; Creative Producer">
 <meta property="og:description" content="Process mapping, low-code automation and reporting. Previously an event and music video producer.">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#07070d">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%2307070d'/><text x='50%' y='58%' font-family='Arial' font-weight='700' font-size='28' fill='%238b5cf6' text-anchor='middle' dominant-baseline='middle'>KR</text></svg>">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://formsubmit.co; form-action 'self'; base-uri 'none'; object-src 'none'; manifest-src 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0a0a0d">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230a0a0d'/><text x='50%' y='58%' font-family='Arial' font-weight='700' font-size='28' fill='%237d5fff' text-anchor='middle' dominant-baseline='middle'>KR</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..600&family=Space+Grotesk:wght@400..700&display=swap" rel="stylesheet">
@@ -50,6 +53,7 @@
       <li><a href="#samples">Samples</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#services">Services</a></li>
+      <li><a href="#security">Security</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -67,6 +71,7 @@
   <a href="#samples">Sample projects</a>
   <a href="#skills">Skills</a>
   <a href="#services">Services</a>
+  <a href="#security">Security</a>
   <a href="#contact">Contact</a>
   <a href="Kingsley-Roy-CV.pdf" download>Download CV</a>
   <p>kingsleyroy14@gmail.com</p>
@@ -262,7 +267,7 @@
     <p>Worked examples built with fictional data to show how I turn campaign figures into decisions.</p>
   </div>
 
-  <a class="project tilt-card" href="samples/grow-your-kent-business.html" target="_blank" rel="noopener" data-cursor="Open">
+  <a class="project tilt-card" href="samples/grow-your-kent-business.html" target="_blank" rel="noopener noreferrer" data-cursor="Open">
     <div class="project__visual reveal-img" aria-hidden="true">
       <svg viewBox="0 0 800 550" preserveAspectRatio="xMidYMid slice">
         <rect width="800" height="550" fill="#141414"/>
@@ -393,6 +398,19 @@
 
 <!-- TESTIMONIALS: add real quotes here when you have them. Left out on purpose so nothing is invented. -->
 
+<!-- ============ SECURITY ============ -->
+<section class="section wrap security panel" id="security" data-hue="1" aria-labelledby="secTitle">
+  <p class="kicker">Security and trust</p>
+  <h2 id="secTitle">Built to protect your data.</h2>
+  <p class="security__lead">Business systems hold client records, finances and personal data. I design them so that access is deliberate, changes are traceable and nothing is shared further than it needs to be.</p>
+  <ul class="security__grid">
+    <li><h3>Least-privilege access</h3><p>Permissions in SharePoint and Power Platform follow roles, so people see only the records they need.</p></li>
+    <li><h3>Data protection by design</h3><p>Workflows are planned around UK GDPR principles: collect only what is needed, keep it only as long as needed.</p></li>
+    <li><h3>Traceable by default</h3><p>Status changes and approvals are logged against each record, giving a clear audit trail for every request.</p></li>
+    <li><h3>Safe sharing</h3><p>Reports go out as controlled, access-limited views rather than loose spreadsheets sent by email.</p></li>
+  </ul>
+</section>
+
 <!-- ============ CONTACT ============ -->
 <section class="section wrap contact" id="contact" data-hue="0">
   <div class="contact__grid">
@@ -403,13 +421,13 @@
       <ul class="contact__links">
         <li><a href="mailto:kingsleyroy14@gmail.com"><span>Email</span><span>kingsleyroy14@gmail.com</span></a></li>
         <li><a href="Kingsley-Roy-CV.pdf" download><span>CV (PDF)</span><span>Download</span></a></li>
-        <li><a href="https://www.linkedin.com/in/kingsleyroy" target="_blank" rel="noopener"><span>LinkedIn</span><span>/in/kingsleyroy</span></a></li>
+        <li><a href="https://www.linkedin.com/in/kingsleyroy" target="_blank" rel="noopener noreferrer"><span>LinkedIn</span><span>/in/kingsleyroy</span></a></li>
       </ul>
     </div>
-    <form class="form" id="contactForm" novalidate>
-      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0">
-      <div class="field"><label for="fName">Name</label><input id="fName" name="name" autocomplete="name" required></div>
-      <div class="field"><label for="fEmail">Email</label><input id="fEmail" name="email" type="email" autocomplete="email" required></div>
+    <form class="form" id="contactForm" novalidate autocomplete="on">
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp">
+      <div class="field"><label for="fName">Name</label><input id="fName" name="name" autocomplete="name" maxlength="80" required></div>
+      <div class="field"><label for="fEmail">Email</label><input id="fEmail" name="email" type="email" autocomplete="email" maxlength="120" required></div>
       <div class="field"><label for="fType">What do you need?</label>
         <select id="fType" name="type">
           <option>Digitalisation and process automation</option>
@@ -420,9 +438,10 @@
           <option>Something else</option>
         </select>
       </div>
-      <div class="field"><label for="fMsg">Message</label><textarea id="fMsg" name="message" required></textarea></div>
+      <div class="field"><label for="fMsg">Message</label><textarea id="fMsg" name="message" maxlength="2000" required></textarea></div>
       <div><button class="btn btn--solid" type="submit">Send message <span class="arr">→</span></button></div>
       <p class="form__note" id="formNote" aria-live="polite"></p>
+      <p class="form__privacy">Your details are used only to reply to this enquiry. They are sent over an encrypted connection, never sold or shared, and deleted when no longer needed.</p>
     </form>
   </div>
 </section>
@@ -641,7 +660,7 @@
       <div><b>Live</b><span>updates for clients through their own dashboard</span></div>
     </div>
     <div></div>
-    <div><p style="margin-top:24px">Sales, production and post-production now work from the same records, so hand-offs are visible, follow-ups happen on time and client issues are picked up quickly.</p></div>
+    <div><p class="mt-24">Sales, production and post-production now work from the same records, so hand-offs are visible, follow-ups happen on time and client issues are picked up quickly.</p></div>
   </section>
 
   <a class="case__next" href="#case-ica" data-case="case-ica"><small>Next case study</small><strong>Invictas club website →</strong></a>
@@ -702,7 +721,7 @@
         <li>Live scores and club activities now sit under one roof.</li>
         <li>The feedback box has improved communication between the committee and players.</li>
       </ul>
-      <p style="margin-top:28px"><a class="btn btn--solid" href="https://invictas-website.vercel.app" target="_blank" rel="noopener">Visit the live site <span class="arr">↗</span></a></p>
+      <p class="mt-28"><a class="btn btn--solid" href="https://invictas-website.vercel.app" target="_blank" rel="noopener noreferrer">Visit the live site <span class="arr">↗</span></a></p>
     </div>
   </section>
 
@@ -713,7 +732,7 @@
   <a href="#top" class="logo">K<b>R</b></a>
   <p>Made in Canterbury with curiosity and care</p>
   <div class="footer__social">
-    <a href="https://www.linkedin.com/in/kingsleyroy" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://www.linkedin.com/in/kingsleyroy" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     <a href="mailto:kingsleyroy14@gmail.com">Email</a>
     <span>© 2026</span>
   </div>

@@ -16,7 +16,7 @@ if (hasGsap) gsap.registerPlugin(ScrollTrigger);
 /* ---------- shared state, driven by scroll sections ---------- */
 const state = { hue: 0, trend: 0, veil: 0 };
 const mouse = { x: 0, y: 0, sx: 0, sy: 0 };
-const PALETTE = ['#8b5cf6', '#22d3ee', '#b8ff5c', '#ff5ca8'].map(c => new THREE.Color(c));
+const PALETTE = ['#7d5fff', '#b3a6ff', '#5b3df5', '#9a86ff'].map(c => new THREE.Color(c));
 const accent = new THREE.Color(PALETTE[0]);
 const accent2 = new THREE.Color(PALETTE[1]);
 function updateAccent(){
@@ -64,7 +64,7 @@ function initScene(){
   renderer.setClearColor(0x000000, 0);
 
   const scene = new THREE.Scene();
-  scene.fog = new THREE.FogExp2(0x07070d, 0.028);
+  scene.fog = new THREE.FogExp2(0x0a0a0d, 0.028);
   const camera = new THREE.PerspectiveCamera(45, innerWidth / innerHeight, .1, 120);
   camera.position.set(0, 0, 9);
   scene.add(camera);
@@ -113,20 +113,20 @@ function initScene(){
   const gx = gc.getContext('2d'), grd = gx.createRadialGradient(128, 128, 0, 128, 128, 128);
   grd.addColorStop(0, 'rgba(255,255,255,.9)'); grd.addColorStop(.35, 'rgba(255,255,255,.28)'); grd.addColorStop(1, 'rgba(255,255,255,0)');
   gx.fillStyle = grd; gx.fillRect(0, 0, 256, 256);
-  const glowMat = tint(new THREE.MeshBasicMaterial({ map: new THREE.CanvasTexture(gc), transparent: true, opacity: 0, depthWrite: false, blending: THREE.AdditiveBlending, color: 0x8b5cf6 }));
+  const glowMat = tint(new THREE.MeshBasicMaterial({ map: new THREE.CanvasTexture(gc), transparent: true, opacity: 0, depthWrite: false, blending: THREE.AdditiveBlending, color: 0x7d5fff }));
   const glow = new THREE.Mesh(new THREE.PlaneGeometry(10, 10), glowMat);
   glow.position.set(0, 0, -2); hero.add(glow);
 
   /* orbit rings + satellites */
-  const ringMat1 = tint(new THREE.MeshBasicMaterial({ color: 0x8b5cf6, transparent: true, opacity: 0 }));
+  const ringMat1 = tint(new THREE.MeshBasicMaterial({ color: 0x7d5fff, transparent: true, opacity: 0 }));
   const ring1 = new THREE.Mesh(new THREE.TorusGeometry(3.5, .012, 8, 220), ringMat1);
   ring1.rotation.x = 1.25; ring1.position.y = -.3; hero.add(ring1);
-  const ringMat2 = tint(new THREE.MeshBasicMaterial({ color: 0x22d3ee, transparent: true, opacity: 0 }), 'color', 1);
+  const ringMat2 = tint(new THREE.MeshBasicMaterial({ color: 0xb3a6ff, transparent: true, opacity: 0 }), 'color', 1);
   const ring2 = new THREE.Mesh(new THREE.TorusGeometry(4.3, .008, 8, 220), ringMat2);
   ring2.rotation.set(1.05, .5, 0); ring2.position.y = -.3; hero.add(ring2);
   const sats = [];
   for (let i = 0; i < 3; i++){
-    const m = tint(new THREE.MeshStandardMaterial({ color: 0x1b1b2a, emissive: 0x8b5cf6, emissiveIntensity: 1.6, metalness: .3, roughness: .3, transparent: true, opacity: 0 }), 'emissive');
+    const m = tint(new THREE.MeshStandardMaterial({ color: 0x1b1b2a, emissive: 0x7d5fff, emissiveIntensity: 1.6, metalness: .3, roughness: .3, transparent: true, opacity: 0 }), 'emissive');
     const s = new THREE.Mesh(new THREE.IcosahedronGeometry(i === 0 ? .17 : .1, 1), m);
     hero.add(s); sats.push({ mesh: s, r: i === 0 ? 3.5 : 4.3, a: i * 2.1, sp: .45 - i * .1, tilt: i === 0 ? 1.25 : 1.05 });
   }
@@ -149,8 +149,8 @@ function initScene(){
     const g = geos[i % geos.length]();
     const wire = i % 3 === 0;
     const mat = wire
-      ? tint(new THREE.MeshBasicMaterial({ color: 0x8b5cf6, wireframe: true, transparent: true, opacity: .55 }))
-      : tint(new THREE.MeshStandardMaterial({ color: 0x14141f, emissive: 0x8b5cf6, emissiveIntensity: .18, metalness: .85, roughness: .22, flatShading: i % 2 === 0 }), 'emissive');
+      ? tint(new THREE.MeshBasicMaterial({ color: 0x7d5fff, wireframe: true, transparent: true, opacity: .55 }))
+      : tint(new THREE.MeshStandardMaterial({ color: 0x14141f, emissive: 0x7d5fff, emissiveIntensity: .18, metalness: .85, roughness: .22, flatShading: i % 2 === 0 }), 'emissive');
     const mesh = new THREE.Mesh(g, mat);
     const side = i % 2 ? 1 : -1;
     const y = -3.5 - (i / N) * DEPTH + (rnd() - .5) * 1.5;
@@ -170,7 +170,7 @@ function initScene(){
     pPos[i * 3 + 2] = -rnd() * 22 + 4;
   }
   const pGeo = new THREE.BufferGeometry(); pGeo.setAttribute('position', new THREE.BufferAttribute(pPos, 3));
-  const pMat = tint(new THREE.PointsMaterial({ size: .045, color: 0x8b5cf6, transparent: true, opacity: .75, depthWrite: false, blending: THREE.AdditiveBlending, sizeAttenuation: true }));
+  const pMat = tint(new THREE.PointsMaterial({ size: .045, color: 0x7d5fff, transparent: true, opacity: .75, depthWrite: false, blending: THREE.AdditiveBlending, sizeAttenuation: true }));
   const points = new THREE.Points(pGeo, pMat); scene.add(points);
 
   /* ----- the "uptrend": 3D bar chart + rising line. Child of the camera so it sits on screen ----- */
@@ -178,8 +178,8 @@ function initScene(){
   trend.position.set(-3.6, -1.3, -9); trend.rotation.set(.08, .5, 0);
   const heights = [.7, 1.0, .9, 1.5, 1.9, 2.6, 3.4];
   const bars = [];
-  const barMat = tint(new THREE.MeshStandardMaterial({ color: 0x1a1a28, emissive: 0x8b5cf6, emissiveIntensity: .55, metalness: .6, roughness: .3, transparent: true, opacity: 0 }), 'emissive');
-  const edgeMat = tint(new THREE.LineBasicMaterial({ color: 0x8b5cf6, transparent: true, opacity: 0 }));
+  const barMat = tint(new THREE.MeshStandardMaterial({ color: 0x1a1a28, emissive: 0x7d5fff, emissiveIntensity: .55, metalness: .6, roughness: .3, transparent: true, opacity: 0 }), 'emissive');
+  const edgeMat = tint(new THREE.LineBasicMaterial({ color: 0x7d5fff, transparent: true, opacity: 0 }));
   heights.forEach((h, i) => {
     const geo = new THREE.BoxGeometry(.5, h, .5); geo.translate(0, h / 2, 0);
     const m = new THREE.Mesh(geo, barMat);
@@ -189,7 +189,7 @@ function initScene(){
   });
   const pts = heights.map((h, i) => new THREE.Vector3((i - 3) * .78, h + .4, 0));
   const curve = new THREE.CatmullRomCurve3(pts);
-  const lineMat = tint(new THREE.MeshBasicMaterial({ color: 0x22d3ee, transparent: true, opacity: 0 }), 'color');
+  const lineMat = tint(new THREE.MeshBasicMaterial({ color: 0xb3a6ff, transparent: true, opacity: 0 }), 'color');
   const tube = new THREE.Mesh(new THREE.TubeGeometry(curve, 80, .035, 8, false), lineMat);
   tube.geometry.setDrawRange(0, 0); trend.add(tube);
   const tipMat = tint(new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0 }), 'color');
@@ -613,24 +613,34 @@ if (location.hash.startsWith('#case-')) window.addEventListener('load', () => se
    click "Activate Form" in it and every later message arrives as a normal email. */
 const CONTACT_EMAIL = 'kingsleyroy14@gmail.com';
 
+const formOpenedAt = Date.now();
+let lastSent = 0;
+const clean = (v, max) => String(v).replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, '').trim().slice(0, max);
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
 $('#contactForm').addEventListener('submit', async e => {
   e.preventDefault();
   const form = e.target, el = form.elements, note = $('#formNote'), btn = $('button[type=submit]', form);
-  const name = el.name.value.trim(), email = el.email.value.trim(), msg = el.message.value.trim();
-  if (!name || !email || !msg || !el.email.checkValidity()){
+  if (el._gotcha.value) return;                                   // honeypot: bots fill hidden fields
+  const name = clean(el.name.value, 80), email = clean(el.email.value, 120), msg = clean(el.message.value, 2000);
+  const type = [...el.type.options].some(o => o.value === el.type.value) ? el.type.value : 'Something else';
+  if (!name || !msg || !EMAIL_RE.test(email) || !el.email.checkValidity()){
     note.textContent = 'Add your name, a valid email and a message, then send again.';
     return;
   }
-  if (el._gotcha.value) return;   // spam bot
+  if (Date.now() - formOpenedAt < 3000){ note.textContent = 'Please take a moment to review your message, then send again.'; return; }
+  if (Date.now() - lastSent < 30000){ note.textContent = 'Message already sent. Please wait a few seconds before sending another.'; return; }
   btn.disabled = true; note.textContent = 'Sending…';
   try {
     const res = await fetch('https://formsubmit.co/ajax/' + CONTACT_EMAIL, {
-      method: 'POST', headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, email, type: el.type.value, message: msg,
-        _subject: `Portfolio enquiry: ${el.type.value}`, _replyto: email, _template: 'table', _captcha: 'false' })
+      method: 'POST', credentials: 'omit', referrerPolicy: 'no-referrer',
+      headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, type, message: msg,
+        _subject: `Portfolio enquiry: ${type}`, _replyto: email, _template: 'table', _captcha: 'false' })
     });
     const data = await res.json().catch(() => ({}));
     if (!res.ok || String(data.success) !== 'true') throw new Error(data.message || res.status);
+    lastSent = Date.now();
     form.reset(); note.textContent = 'Thanks, your message has been sent. I will reply soon.';
   } catch (err){
     note.textContent = `Sorry, that did not send. Please email ${CONTACT_EMAIL} directly.`;
