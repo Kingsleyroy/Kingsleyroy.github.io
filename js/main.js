@@ -48,7 +48,7 @@ function finishLoad(){
   setLoad(1);
   setTimeout(revealSite, 120);
 }
-setTimeout(finishLoad, 2500); // safety net: never keep visitors waiting
+setTimeout(finishLoad, 1500); // safety net: never keep visitors waiting
 
 /* =========================================================
    2. THREE.JS SCENE
@@ -78,7 +78,7 @@ function initScene(){
   const tintMats = [];  // [{ mat, mode:'color'|'emissive', mix }]
   const tint = (mat, mode = 'color', k = 1) => { tintMats.push({ mat, mode, k }); return mat; };
 
-  /* ----- hero group: portrait + rings + glow ----- */
+  /* ----- hero group: portrait + glow ----- */
   const hero = new THREE.Group(); scene.add(hero);
   const portraitH = 5.7, portraitW = portraitH * (1267 / 1400);
 
@@ -117,20 +117,6 @@ function initScene(){
   const glow = new THREE.Mesh(new THREE.PlaneGeometry(10, 10), glowMat);
   glow.position.set(0, 0, -2); hero.add(glow);
 
-  /* orbit rings + satellites */
-  const ringMat1 = tint(new THREE.MeshBasicMaterial({ color: 0x7d5fff, transparent: true, opacity: 0 }));
-  const ring1 = new THREE.Mesh(new THREE.TorusGeometry(3.5, .012, 8, 220), ringMat1);
-  ring1.rotation.x = 1.25; ring1.position.y = -.3; hero.add(ring1);
-  const ringMat2 = tint(new THREE.MeshBasicMaterial({ color: 0xb3a6ff, transparent: true, opacity: 0 }), 'color', 1);
-  const ring2 = new THREE.Mesh(new THREE.TorusGeometry(4.3, .008, 8, 220), ringMat2);
-  ring2.rotation.set(1.05, .5, 0); ring2.position.y = -.3; hero.add(ring2);
-  const sats = [];
-  for (let i = 0; i < 3; i++){
-    const m = tint(new THREE.MeshStandardMaterial({ color: 0x1b1b2a, emissive: 0x7d5fff, emissiveIntensity: 1.6, metalness: .3, roughness: .3, transparent: true, opacity: 0 }), 'emissive');
-    const s = new THREE.Mesh(new THREE.IcosahedronGeometry(i === 0 ? .17 : .1, 1), m);
-    hero.add(s); sats.push({ mesh: s, r: i === 0 ? 3.5 : 4.3, a: i * 2.1, sp: .45 - i * .1, tilt: i === 0 ? 1.25 : 1.05 });
-  }
-
   /* ----- floating geometry that the camera drifts past while scrolling ----- */
   const DEPTH = 34;                       // how far the camera travels downward
   const floaters = [];
@@ -144,7 +130,7 @@ function initScene(){
     () => new THREE.ConeGeometry(.8, 1.5, 5)
   ];
   const rnd = (() => { let s = 7; return () => (s = (s * 16807) % 2147483647) / 2147483647; })();
-  const N = isTouch ? 12 : 20;
+  const N = isTouch ? 8 : 12;
   for (let i = 0; i < N; i++){
     const g = geos[i % geos.length]();
     const wire = i % 3 === 0;
@@ -233,7 +219,7 @@ function initScene(){
     const t = clock.getElapsedTime();
     updateAccent();
     tintMats.forEach(({ mat, mode, k }) => (mode === 'emissive' ? mat.emissive : mat.color).copy(accent).multiplyScalar(k));
-    ringMat2.color.copy(accent2); lineMat.color.copy(accent2);
+    lineMat.color.copy(accent2);
     key.color.copy(accent); rim.color.copy(accent2);
 
     scrollTarget = scrollMax() > 0 ? Math.min(1, Math.max(0, window.scrollY / scrollMax())) : 0;
@@ -258,14 +244,6 @@ function initScene(){
     portraitUniforms.opacity.value = heroOpacity;
     rimUniforms.opacity.value = heroOpacity * .4;
     glowMat.opacity = heroOpacity * .6;
-    ringMat1.opacity = heroOpacity * .4; ringMat2.opacity = heroOpacity * .25;
-    ring1.rotation.z = t * .15; ring2.rotation.z = -t * .1;
-    sats.forEach(s => {
-      s.a += .006 * s.sp * 6;
-      const x = Math.cos(s.a) * s.r, z = Math.sin(s.a) * s.r * Math.sin(s.tilt), y = Math.sin(s.a) * s.r * Math.cos(s.tilt) * .35 - .3;
-      s.mesh.position.set(x, y, z); s.mesh.material.opacity = heroOpacity;
-    });
-
     /* floaters */
     floaters.forEach((f, i) => {
       f.mesh.rotation.x += f.rs.x * .01; f.mesh.rotation.y += f.rs.y * .012; f.mesh.rotation.z += f.rs.z * .008;
@@ -385,15 +363,13 @@ function revealSite(){
     return;
   }
   gsap.set(lines, { yPercent: 110 });
-  gsap.set('.hero-bgtext span', { yPercent: 40, opacity: 0 });
   gsap.set('.hero-role, .hero-sub, .hero-cta, .scroll-cue, .nav', { opacity: 0, y: 18 });
   const tl = gsap.timeline();
   tl.to('.loader__inner', { y: -20, opacity: 0, duration: .3, ease: 'power2.in' })
     .to(loader, { clipPath: 'inset(0 0 100% 0)', duration: .6, ease: 'power4.inOut' }, '-=.1')
     .set(loader, { display: 'none' });
   if (gl) tl.to(gl.intro, { v: 1, duration: 1.8, ease: 'power3.out' }, '-=.4');
-  tl.to('.hero-bgtext span', { yPercent: 0, opacity: 1, duration: 1.4, ease: 'power4.out', stagger: .12 }, '-=2')
-    .to(lines, { yPercent: 0, duration: 1.1, ease: 'power4.out', stagger: .09 }, '-=1.6')
+  tl.to(lines, { yPercent: 0, duration: 1.1, ease: 'power4.out', stagger: .09 }, '-=1.4')
     .to('.hero-role, .hero-sub, .hero-cta, .scroll-cue, .nav', { opacity: 1, y: 0, duration: .9, ease: 'power3.out', stagger: .07, clearProps: 'transform' }, '-=1');
 }
 
@@ -418,7 +394,7 @@ function setupScroll(){
     }
   });
 
-  /* hero leaves: portrait turns away, copy lifts and fades, background text drifts */
+  /* hero leaves: portrait turns away, copy lifts and fades */
   if (gl){
     ScrollTrigger.create({
       trigger: '.hero', start: 'top top', end: 'bottom bottom', scrub: true,
@@ -427,9 +403,7 @@ function setupScroll(){
   }
   gsap.timeline({ scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom bottom', scrub: true } })
     .to('.hero-copy', { yPercent: -12, opacity: 0, ease: 'power1.in' }, .35)
-    .to('.hero-bgtext span:first-child', { xPercent: -14, ease: 'none' }, 0)
-    .to('.hero-bgtext span:last-child', { xPercent: 14, ease: 'none' }, 0)
-    .to('.hero-bgtext', { opacity: 0, ease: 'power1.in' }, .45);
+    ;
 
   /* scene changes: each section sets the hue, veil strength and chart visibility */
   $$('[data-hue]').forEach(sec => {
@@ -441,7 +415,7 @@ function setupScroll(){
   gsap.ticker.add(() => { $('#veil').style.opacity = state.veil; });
 
   ScrollTrigger.create({
-    trigger: '#about', start: 'top 60%', endTrigger: '#method', end: 'top 70%',
+    trigger: '#about', start: 'top 60%', endTrigger: '#experience', end: 'top 70%',
     onEnter: () => gsap.to(state, { trend: 1, duration: 2.4, ease: 'power3.out', overwrite: 'auto' }),
     onLeave: () => gsap.to(state, { trend: 0, duration: 1, ease: 'power2.in', overwrite: 'auto' }),
     onEnterBack: () => gsap.to(state, { trend: 1, duration: 1.8, ease: 'power3.out', overwrite: 'auto' }),
@@ -458,7 +432,7 @@ function setupScroll(){
   if (reduceMotion) return;
 
   /* headings: word-by-word rise */
-  $$('main h2, .why__list').forEach(el => {
+  $$('main h2').forEach(el => {
     if (el.matches('h2')){
       splitWords(el);
       gsap.from(el.querySelectorAll('.w'), { yPercent: 115, duration: 1.1, ease: 'power4.out', stagger: .045,
@@ -467,7 +441,7 @@ function setupScroll(){
   });
 
   /* general reveals */
-  const revealSel = '.about__text p, .method__intro, .steps li, .project__meta, .project h3, .project > div:last-child > p, .project__tools, .project__link, .service, .why__list li, .ach__list li, .community p, .community .btn, .contact__lead, .contact__links li, .form, .skill, .work__head p, .kicker';
+  const revealSel = '.about__text p, .method__intro, .steps li, .project__meta, .project h3, .project > div:last-child > p, .project__tools, .project__link, .tl__item, .points__title, .points li, .ach__list li, .beyond, .contact__lead, .contact__note, .contact__links li, .form, .skill, .work__head p, .kicker';
   gsap.set(revealSel, { y: 46, opacity: 0 });
   ScrollTrigger.batch(revealSel, {
     start: 'top 92%', once: true,
@@ -475,13 +449,14 @@ function setupScroll(){
   });
 
   /* stat cards: rise + count up */
-  $$('.stat').forEach((card, i) => {
+  $$('.stat').forEach((card) => {
+    const grp = card.parentElement, i = [...grp.children].indexOf(card);
     const b = $('b', card), txt = b.textContent;
     const m = txt.match(/^(\D*)(\d+)(.*)$/);
-    gsap.from(card, { y: 70, opacity: 0, duration: 1.1, ease: 'power3.out', delay: i * .08, scrollTrigger: { trigger: '.stats', start: 'top 85%' }, clearProps: 'transform,opacity' });
+    gsap.from(card, { y: 70, opacity: 0, duration: 1.1, ease: 'power3.out', delay: i * .08, scrollTrigger: { trigger: grp, start: 'top 85%' }, clearProps: 'transform,opacity' });
     if (m){
       const o = { n: 0 };
-      ScrollTrigger.create({ trigger: '.stats', start: 'top 85%', once: true, onEnter: () => {
+      ScrollTrigger.create({ trigger: grp, start: 'top 85%', once: true, onEnter: () => {
         gsap.to(o, { n: +m[2], duration: 2, ease: 'power2.out', delay: i * .08, onUpdate: () => { b.textContent = m[1] + Math.round(o.n) + m[3]; } });
       } });
       b.textContent = m[1] + '0' + m[3];
