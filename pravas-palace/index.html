@@ -96,6 +96,13 @@ nav.solid{background:#2a0a12ee;backdrop-filter:blur(10px);padding-block:10px}
 .dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 24px;margin:22px 0 26px;padding:18px 0;border-block:1px solid var(--line);font-size:15px}
 .dl b{display:block;font-weight:400;color:var(--soft);font-size:13px}
 @media(max-width:820px){.spread{grid-template-columns:minmax(0,1fr)}.spread:nth-child(even) .shot{order:0}}
+/* video */
+.vid{position:relative;aspect-ratio:16/9;background:#1a060b center/cover no-repeat;border-radius:2px;overflow:hidden;margin-top:36px}
+.vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vid button{position:absolute;inset:0;width:100%;border:0;background:linear-gradient(#1a060b33,#1a060b99);color:var(--ivory);cursor:pointer;display:grid;place-content:center;justify-items:center;gap:14px;font:400 18px var(--sans)}
+.vid button i{width:84px;height:84px;border-radius:50%;background:var(--gold);display:grid;place-items:center;transition:transform .25s}
+.vid button:hover i{transform:scale(1.08)}
+.vid button i::after{content:"";margin-left:6px;border-left:24px solid #1d0b10;border-block:15px solid transparent}
 /* services */
 .svc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 clamp(24px,4vw,56px);margin-top:48px}
 .svc div{border-top:1px solid #c9a25b66;padding:26px 0 30px}
@@ -169,7 +176,7 @@ footer .row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;f
     <svg viewBox="0 0 34 40" aria-hidden="true"><path d="M2 39V17A15 15 0 0 1 32 17V39" fill="none" stroke="#c9a25b" stroke-width="1.5"/><path d="M7 39V19A10 10 0 0 1 27 19V39" fill="none" stroke="#c9a25b" stroke-width="1"/><circle cx="17" cy="6" r="2" fill="#c9a25b"/><text x="17" y="33" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="14" fill="#e7cd94">P</text></svg>
     <span>Pravas Palace</span>
   </a>
-  <div class="navl"><a href="#spaces">Spaces</a><a href="#services">Services</a><a href="#packages">Packages</a><a href="#book">Dates</a><a href="#visit">Visit</a></div>
+  <div class="navl"><a href="#video">Video</a><a href="#spaces">Spaces</a><a href="#services">Services</a><a href="#packages">Packages</a><a href="#book">Dates</a><a href="#visit">Visit</a></div>
   <a class="btn gold" href="#book">Book a visit</a>
 </nav>
 
@@ -208,6 +215,13 @@ footer .row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;f
       <div class="stats"><div><b>800</b><span>seated guests</span></div><div><b>400</b><span>per dining sitting</span></div><div><b>6</b><span>family rooms</span></div></div>
       <p class="note">Capacity, prices and booked dates on this page are sample content until confirmed by the hall.</p>
     </div>
+  </div>
+</section>
+
+<section class="band dark" id="video">
+  <div class="wrap">
+    <div class="head2 reveal"><div><span class="ta">காணொளி</span><h2>See the hall on video</h2></div><p class="muted">A full walk-through of the hall, filmed on site.</p></div>
+    <div class="vid reveal" id="vid" style="background-image:url(https://i.ytimg.com/vi/LTaBoJVCuFU/hqdefault.jpg)"><button type="button" id="vplay" aria-label="Play the hall video"><i></i>Play the hall video</button></div>
   </div>
 </section>
 
@@ -537,6 +551,7 @@ const t0=performance.now();
   apply();renderer.render(scene,cam);})();
 }catch(err){console.error(err);hero.insertAdjacentHTML('beforeend','<div class="nogl">The 3D tour could not load on this device.</div>');}
 
+document.getElementById('vplay').onclick=()=>{document.getElementById('vid').innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/LTaBoJVCuFU?autoplay=1&rel=0" title="Pravas Palace hall video" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';};
 document.addEventListener('click',e=>{const b=e.target.closest('[data-view]');if(!b)return;if(!b.closest('#chips'))scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});go(b.dataset.view);});
 
 /* ---------- calendar ---------- */
