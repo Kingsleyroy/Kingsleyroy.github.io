@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Pravas Palace, Tindivanam | Wedding Hall and Convention Centre (Demo)</title>
-<meta name="description" content="Demo website for Pravas Palace, a wedding hall in Tindivanam: interactive 3D tour of the hall, mandapam and dining hall, packages and date enquiry.">
+<meta name="description" content="Pravas Palace, a fully air-conditioned wedding hall and convention centre in Omandhur, Tindivanam, with 1000+ chairs, a 500-seat dining hall, luxury rooms and parking. Take the scroll walkthrough and enquire on WhatsApp.">
 <meta name="robots" content="noindex">
 <meta property="og:title" content="Pravas Palace, Tindivanam (Demo)">
 <meta property="og:description" content="Walk through Pravas Palace in a scroll-driven film.">
@@ -14,10 +14,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500&family=Mukta+Malar:wght@400;600&display=swap" rel="stylesheet">
 <style>
 /* VOICE: grand, calm and gracious — a luxury venue that lets you in before you visit
-   IDEA: the page is the hall itself: you arrive through the doors and the website opens out from the 3D room
-   PICTURE: full-screen live 3D hall (mandapam, flower curtain, chandeliers, 600+ dressed chairs, dining hall); renders of it become the photography
+   IDEA: the page is the hall itself: real footage of the hall plays as you scroll
+   PICTURE: real stills and clips from the hall's own walkthrough film
    COLOUR and TYPE: deep wine ground, ivory paper, champagne gold accent, rose for detail; Cormorant Garamond display, Jost text, Mukta Malar for Tamil
-   LAYOUT: cinematic hero, editorial statement, alternating space spreads, dark services band, tiers, booking desk, closing wordmark */
+   LAYOUT: cinematic hero, editorial statement, alternating space spreads, dark services band, booking desk, closing wordmark */
 :root{color-scheme:light dark;--ivory:#f7f1e7;--serif:"Cormorant Garamond","Mukta Malar",Georgia,serif;--sans:Jost,"Mukta Malar",system-ui,sans-serif}
 :root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
 /* PALETTE: Plum and Copper */
@@ -47,7 +47,12 @@ nav.solid{background:color-mix(in srgb,var(--wine) 93%,transparent);backdrop-fil
 .logo svg{width:34px;height:40px}
 .navl{display:flex;gap:6px;overflow-x:auto}
 .navl a{flex:none;text-decoration:none;padding:10px 12px;font-size:15px;opacity:.88}.navl a:hover{opacity:1;color:var(--gold2)}
-@media(max-width:860px){.navl{display:none}nav .btn{padding-inline:18px}}
+.menu{display:none;width:46px;height:46px;border:0;background:transparent;cursor:pointer;padding:0;position:relative}
+.menu span,.menu span::before,.menu span::after{position:absolute;left:12px;width:22px;height:2px;background:var(--ivory);content:"";transition:transform .25s,opacity .25s}
+.menu span{top:22px}.menu span::before{top:-7px;left:0}.menu span::after{top:7px;left:0}
+.menu[aria-expanded=true] span{background:transparent}.menu[aria-expanded=true] span::before{transform:translateY(7px) rotate(45deg)}.menu[aria-expanded=true] span::after{transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:860px){.menu{display:block}nav .btn{padding-inline:18px}.navl{display:none;position:fixed;top:0;left:0;right:0;padding:76px max(4vw,18px) 22px;flex-direction:column;gap:0;background:var(--abyss);z-index:-1;overflow:visible}.navl.open{display:flex}.navl a{padding:16px 6px;font-size:18px;opacity:1;border-bottom:1px solid #ffffff1f}nav{z-index:60;gap:10px}.logo span{white-space:nowrap;font-size:21px}nav .btn{white-space:nowrap;min-height:44px;padding:8px 14px;font-size:15px}.navl{padding-top:88px}}
+@media(max-width:560px){nav .btn .long{display:none}}
 /* hero */
 .hero{position:relative;height:100svh;min-height:600px;background:var(--abyss);color:var(--ivory);overflow:hidden}
 .scrim{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,color-mix(in srgb,var(--abyss) 69%,transparent) 0,color-mix(in srgb,var(--abyss) 0%,transparent) 20%,color-mix(in srgb,var(--abyss) 0%,transparent) 38%,color-mix(in srgb,var(--abyss) 85%,transparent) 72%,color-mix(in srgb,var(--abyss) 97%,transparent) 100%),linear-gradient(90deg,color-mix(in srgb,var(--abyss) 60%,transparent) 0,color-mix(in srgb,var(--abyss) 0%,transparent) 60%);transition:opacity .6s}
@@ -90,17 +95,6 @@ nav.solid{background:color-mix(in srgb,var(--wine) 93%,transparent);backdrop-fil
 @media(max-width:560px){.svc{grid-template-columns:minmax(0,1fr)}}
 .head2{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap}
 .head2 p{max-width:30em;margin:0}
-/* packages */
-.tiers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:48px;align-items:stretch}
-.tier{background:var(--card);border:1px solid var(--line);padding:clamp(26px,3vw,40px);display:flex;flex-direction:column;gap:14px;border-radius:2px}
-.tier.pick{background:var(--wine);color:var(--ivory);border-color:var(--gold);transform:translateY(-12px);box-shadow:0 30px 60px -30px var(--abyss)}
-.tier .price{font:500 clamp(40px,4vw,52px)/1 var(--serif);white-space:nowrap}
-.tier .per{font-size:14px;color:var(--soft)}.tier.pick .per,.tier.pick li{color:#d6c2b8}
-.tier ul{list-style:none;margin:6px 0 10px;padding:0;display:grid;gap:10px;font-size:16px;color:var(--soft)}
-.tier li{padding-left:22px;position:relative}.tier li::before{content:"";position:absolute;left:0;top:.7em;width:10px;height:1px;background:var(--gold)}
-.tier .btn{margin-top:auto}
-.tag{align-self:start;font-size:13px;color:var(--on-gold);background:var(--gold);padding:3px 12px;border-radius:20px}
-@media(max-width:900px){.tiers{grid-template-columns:minmax(0,1fr)}.tier.pick{transform:none}}
 /* booking */
 .steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin:40px 0 48px}
 .steps div{display:flex;gap:16px;align-items:start}
@@ -180,12 +174,6 @@ dialog#lb button{position:absolute;top:10px;right:10px;width:46px;height:46px;bo
 .cap th{font-weight:400;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
 .cap td:first-child{font-weight:500}
 /* testimonials */
-.quotes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:44px}
-.quotes blockquote{margin:0;background:var(--card);border:1px solid var(--line);padding:30px 28px;border-radius:2px;position:relative}
-.quotes blockquote::before{content:"\201C";position:absolute;top:2px;left:20px;font:500 80px/1 var(--serif);color:var(--gold)}
-.quotes p{margin:26px 0 18px;font:italic 500 22px/1.35 var(--serif)}
-.quotes cite{font-style:normal;font-size:14px;color:var(--soft)}
-@media(max-width:900px){.quotes{grid-template-columns:minmax(0,1fr)}}
 /* faq */
 .faq{max-width:860px;margin:44px auto 0}
 .faq details{border-bottom:1px solid var(--line)}
@@ -232,12 +220,13 @@ dialog#lb button{position:absolute;top:10px;right:10px;width:46px;height:46px;bo
     <svg viewBox="0 0 34 40" aria-hidden="true"><path d="M2 39V17A15 15 0 0 1 32 17V39" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M7 39V19A10 10 0 0 1 27 19V39" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="17" cy="6" r="2" fill="currentColor"/><text x="17" y="33" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="14" style="fill:var(--gold2)">P</text></svg>
     <span>Pravas Palace</span>
   </a>
-  <div class="navl"><a href="#film">Walkthrough</a><a href="#spaces">Spaces</a><a href="#gallery">Gallery</a><a href="#packages">Packages</a><a href="#faq">FAQ</a><a href="#book">Contact</a></div>
-  <a class="btn gold wa" href="#" target="_blank" rel="noopener">Book on WhatsApp</a>
+  <div class="navl" id="navl"><a href="#film">Walkthrough</a><a href="#spaces">Spaces</a><a href="#gallery">Gallery</a><a href="#faq">FAQ</a><a href="#book">Contact</a></div>
+  <a class="btn gold wa" href="#" target="_blank" rel="noopener"><span class="long">Book on </span>WhatsApp</a>
+  <button class="menu" id="menu" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navl"><span></span></button>
 </nav>
 
 <header class="hero" id="top">
-  <video autoplay muted playsinline preload="auto" poster="media/img/hero-poster.jpg" aria-label="Pravas Palace building and hall"><source src="media/hero.mp4" type="video/mp4"></video>
+  <video autoplay muted playsinline preload="auto" poster="media/img/hero-poster.jpg" aria-label="Pravas Palace building and hall"></video>
   <div class="scrim"></div>
   <div class="hcopy">
     <div>
@@ -261,14 +250,13 @@ dialog#lb button{position:absolute;top:10px;right:10px;width:46px;height:46px;bo
     <div>
       <p class="muted">Pravas Palace is a palace-style convention hall in Omandhur, Tindivanam, built for weddings and family functions as well as corporate meetings and events. It has a grand chandelier hall, a dining hall, luxury rooms, a lift, a Kalyana Vinayagar shrine, power backup and big car parking inside the compound.</p>
       <div class="stats"><div><b>1000+</b><span>chairs in the hall</span></div><div><b>500</b><span>dining capacity</span></div><div><b>Lift</b><span>in the building</span></div></div>
-      <p class="note">Package prices, reviews and FAQ answers on this page are sample content until confirmed by the hall.</p>
     </div>
   </div>
 </section>
 
 <section class="film" id="film" aria-label="Scroll walkthrough of Pravas Palace">
   <div class="pin">
-    <video id="fv" muted playsinline preload="auto" tabindex="-1"><source src="media/film.mp4" type="video/mp4"></video>
+    <video id="fv" muted playsinline preload="none" poster="media/img/exterior-day.jpg" tabindex="-1"></video>
     <div class="shade"></div>
     <div class="top"><span>The walkthrough</span><span id="fcount">01 / 12</span></div>
     <div class="cap" id="fcap"><small id="fkick">Arrival</small><h3 id="ftitle"></h3><p id="fsub"></p></div>
@@ -307,7 +295,7 @@ dialog#lb button{position:absolute;top:10px;right:10px;width:46px;height:46px;bo
       <div class="ev"><h3>Weddings</h3><p>A grand hall under a crystal chandelier, with seating for 1000+ and rooms for both families.</p></div>
       <div class="ev"><h3>Receptions and parties</h3><p>A wide stage, warm lighting and a red-carpet aisle for an evening to remember.</p></div>
       <div class="ev"><h3>Conferences and meetings</h3><p>A fully air-conditioned hall with a lift, parking and power backup for corporate days.</p></div>
-      <div class="ev"><h3>Concerts and more</h3><p>Open floor, a large stage and a balcony level for audiences and performances.</p></div>
+      <div class="ev"><h3>Concerts and more</h3><p>A large stage, a balcony level and seating for 1000+ guests.</p></div>
     </div>
     <table class="cap reveal"><caption>At a glance</caption>
       <thead><tr><th>Space</th><th>What you get</th></tr></thead>
@@ -319,24 +307,6 @@ dialog#lb button{position:absolute;top:10px;right:10px;width:46px;height:46px;bo
         <tr><td>Compound</td><td>Kalyana Vinayagar shrine, power backup unit, big car parking</td></tr>
       </tbody>
     </table>
-  </div>
-</section>
-
-<section class="band" id="packages">
-  <div class="wrap">
-    <div class="head2 reveal"><div><span class="ta">தொகுப்புகள்</span><h2>Packages</h2></div><p class="muted">Sample packages and prices. Message us for the current rates.</p></div>
-    <div class="tiers reveal" id="tiers"></div>
-  </div>
-</section>
-
-<section class="band" id="reviews" style="background:var(--paper2)">
-  <div class="wrap">
-    <div class="head2 reveal"><div><span class="ta">வாழ்த்துகள்</span><h2>Words from families</h2></div><p class="muted">Sample reviews for the demo. They will be replaced with real ones from families who have booked.</p></div>
-    <div class="quotes reveal">
-      <blockquote><p>The hall looked beautiful and our guests were comfortable all day. The team handled everything calmly.</p><cite>Sample review · Wedding</cite></blockquote>
-      <blockquote><p>The dining hall made serving hundreds of guests so easy. Meals were on time and nobody had to wait.</p><cite>Sample review · Reception</cite></blockquote>
-      <blockquote><p>We saw the hall on the website first and it was exactly the same when we visited. We booked that day.</p><cite>Sample review · Engagement</cite></blockquote>
-    </div>
   </div>
 </section>
 
@@ -389,7 +359,7 @@ dialog#lb button{position:absolute;top:10px;right:10px;width:46px;height:46px;bo
 
 <footer>
   <div class="word">Pravas Palace</div>
-  <div class="row"><span>Weddings · Receptions · Conferences · Concerts · Tindivanam</span><span>Walkthrough footage by Zero Artistic Designs. Demo site: prices, reviews and some details are sample content.</span></div>
+  <div class="row"><span>Weddings · Receptions · Conferences · Concerts · Tindivanam</span><span>Walkthrough footage by Zero Artistic Designs. Demo website.</span></div>
 </footer>
 
 <a class="fab wa" href="#" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.3A10 10 0 1 0 12 2z"/><path style="fill:#25D366" d="M9.2 6.8c-.5 0-1 .3-1.2 1-.3 1.2.2 2.7 1.5 4.2 1.4 1.6 3.2 2.5 4.5 2.8.9.2 1.8-.4 1.9-1.2l-1.8-1-.9.9c-1.1-.4-2.1-1.4-2.6-2.5l.9-.9z"/></svg><b>WhatsApp</b></a>
@@ -408,13 +378,7 @@ const spaces=[
 const gals=[['hall','The grand hall','hall'],['seating','Seating and aisle','hall'],['stage','The stage','hall'],['balcony','Balcony and ceiling','hall'],['chairs','1000+ chairs','hall'],['corridor','Corridor and lift','hall'],['dining','The dining hall','dining'],['rooms','Luxury rooms','rooms'],['exterior-day','The building','outside'],['exterior-night','At night','outside'],['temple','Kalyana Vinayagar','outside'],['power','Power backup unit','outside']];
 const ICON={ac:'<svg viewBox="0 0 32 32"><path d="M16 3v26M5 9l22 14M27 9 5 23M12 5l4 3 4-3M12 27l4-3 4 3"/></svg>',light:'<svg viewBox="0 0 32 32"><path d="M16 4a8 8 0 0 0-4 15v3h8v-3a8 8 0 0 0-4-15z"/><path d="M12 26h8M13 29h6"/></svg>',lift:'<svg viewBox="0 0 32 32"><rect x="6" y="3" width="20" height="26" rx="2"/><path d="M12 12l4-4 4 4M12 20l4 4 4-4"/></svg>',room:'<svg viewBox="0 0 32 32"><path d="M3 26V8M3 20h26v6M29 20v-5a4 4 0 0 0-4-4H13v9"/><circle cx="8" cy="15" r="2.5"/></svg>',power:'<svg viewBox="0 0 32 32"><path d="M18 3 8 18h7l-2 11 11-16h-7z"/></svg>',park:'<svg viewBox="0 0 32 32"><rect x="5" y="5" width="22" height="22" rx="3"/><path d="M12 22V10h5a3.5 3.5 0 0 1 0 7h-5"/></svg>'};
 const services=[['ac','Fully centralised AC','A cool, comfortable main hall in every season.'],['light','Grand modern lighting','A crystal chandelier and warm ceiling lights across the hall.'],['lift','Lift facilities','A well-maintained lift to every level of the building.'],['room','Luxury rooms','Comfortable rooms for the families to rest and get ready.'],['power','Power backup unit','A backup unit inside the compound keeps the day running.'],['park','Big car parking','Parking for guests inside the compound wall.']];
-const tiers=[
- {t:'Hall',p:'₹75,000',u:'per day',l:['Main hall and stage','Dining hall','Two luxury rooms','Power backup']},
- {t:'Wedding',p:'₹1,60,000',u:'per day',pick:1,l:['Everything in Hall','Stage and entrance decor','Lighting for the day','All luxury rooms']},
- {t:'Two days',p:'₹2,75,000',u:'reception and wedding',l:['Evening reception, next-day wedding','Two decoration themes','All rooms across both days','Priority setup and hand-over']}
-];
 $('svc').innerHTML=services.map(s=>`<div>${ICON[s[0]]}<h3>${s[1]}</h3><p>${s[2]}</p></div>`).join('');
-$('tiers').innerHTML=tiers.map(x=>`<div class="tier${x.pick?' pick':''}">${x.pick?'<span class="tag">Most chosen</span>':''}<h3>${x.t}</h3><div><div class="price">${x.p}</div><span class="per">${x.u}</span></div><ul>${x.l.map(i=>`<li>${i}</li>`).join('')}</ul><a class="btn wa ${x.pick?'gold':'line'}" href="#" target="_blank" rel="noopener" data-pkg="${x.t}">Enquire on WhatsApp</a></div>`).join('');
 $('spreads').insertAdjacentHTML('beforeend',spaces.map(s=>`<article class="spread reveal"><figure class="shot"><img src="${IMG+s.i}.jpg" alt="${s.t} at Pravas Palace" width="640" height="360" loading="lazy"></figure><div><span class="ta">${s.ta}</span><h3>${s.t}</h3><p style="margin-top:14px">${s.d}</p><div class="dl">${s.f.map(f=>`<div><b>${f[0]}</b>${f[1]}</div>`).join('')}</div><a class="link" href="#film">See it in the walkthrough →</a></div></article>`).join(''));
 $('gal').innerHTML=gals.map(g=>`<figure class="gi" data-cat="${g[2]}"><button type="button" data-lb aria-label="Enlarge: ${g[1]}"><img src="${IMG+g[0]}.jpg" alt="${g[1]}" width="640" height="360" loading="lazy"><figcaption>${g[1]}</figcaption></button></figure>`).join('');
 $('tabs').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;document.querySelectorAll('#tabs button').forEach(x=>x.setAttribute('aria-pressed',x===b));document.querySelectorAll('.gi').forEach(f=>f.hidden=b.dataset.cat!=='all'&&f.dataset.cat!==b.dataset.cat);});
@@ -432,7 +396,7 @@ const film=$('film'),fv=$('fv'),cap=$('fcap');
 if(matchMedia('(prefers-reduced-motion: reduce)').matches){film.classList.add('static');fv.controls=true;fv.muted=true;}
 else{
  let target=0,cur=0,idx=-1,on=false;
- const dur=()=>fv.duration||76;
+ const dur=()=>fv.duration||66.8;
  const set=i=>{if(i===idx)return;idx=i;cap.classList.add('swap');setTimeout(()=>{$('fkick').textContent='Chapter '+String(i+1).padStart(2,'0');$('ftitle').textContent=CH[i][1];$('fsub').textContent=CH[i][2];$('fcount').textContent=String(i+1).padStart(2,'0')+' / '+CH.length;cap.classList.remove('swap');},180);};
  const calc=()=>{const r=film.getBoundingClientRect(),h=film.offsetHeight-innerHeight,p=Math.min(1,Math.max(0,-r.top/h));target=p*(dur()-.05);$('fbar').style.width=p*100+'%';$('fhint').style.opacity=p>.02?0:1;let k=0;CH.forEach((c,j)=>{if(target>=c[0])k=j;});set(k);};
  addEventListener('scroll',calc,{passive:true});addEventListener('resize',calc);fv.addEventListener('loadedmetadata',calc);
@@ -440,6 +404,19 @@ else{
  set(0);$('ftitle').textContent=CH[0][1];$('fsub').textContent=CH[0][2];
  (function loop(){requestAnimationFrame(loop);if(!on)return;cur+=(target-cur)*.055;if(Math.abs(cur-target)<.01)cur=target;if(!fv.seeking&&Math.abs(fv.currentTime-cur)>.02)fv.currentTime=cur;})();
 }
+
+/* lighter media loading: smaller files on phones, film loads only when near */
+const small=matchMedia('(max-width:700px)').matches||(navigator.connection&&navigator.connection.saveData);
+const sfx=small?'-m':'';
+const hv=document.querySelector('.hero video');hv.src='media/hero'+sfx+'.mp4';const pl=hv.play();if(pl&&pl.catch)pl.catch(()=>{});
+let filmLoaded=false;
+new IntersectionObserver(es=>{if(es[0].isIntersecting&&!filmLoaded){filmLoaded=true;fv.src='media/film'+sfx+'.mp4';fv.load();}},{rootMargin:'50% 0px'}).observe(film);
+/* mobile menu */
+const mb=$('menu'),nl=$('navl');
+const closeMenu=()=>{nl.classList.remove('open');mb.setAttribute('aria-expanded','false');};
+mb.addEventListener('click',()=>{const o=nl.classList.toggle('open');mb.setAttribute('aria-expanded',o);});
+nl.addEventListener('click',e=>{if(e.target.closest('a'))closeMenu();});
+addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();});
 
 /* whatsapp */
 const WA_NUMBER='';/* hall's WhatsApp number with country code, digits only, e.g. 919876543210 */
