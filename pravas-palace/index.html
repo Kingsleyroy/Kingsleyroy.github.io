@@ -436,7 +436,7 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.targ
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
 /* scroll film: scrolling moves the video forward and backward */
-const CH=[[0,"Arrival","The Pravas Palace building"],[3.0,"The grand hall","A crystal chandelier over the stage"],[6.1,"Grand modern lighting","Warm lights across the ceiling"],[12.1,"Fully centralised AC","Cool, comfortable seating"],[20.1,"1000+ chairs","Comfortable seating for every guest"],[26.1,"Kalyana Vinayagar","Inside the compound wall"],[33.1,"Power backup unit","Lights and AC stay on"],[36.1,"Big car parking","Inside the compound wall"],[43.1,"The dining hall","500 seating capacity"],[51.1,"Luxury rooms","Rest and get ready"],[57.1,"The hall, once more","Balcony, chandelier and seating"]];
+const CH=[[0,"Arrival","The Pravas Palace building"],[3.0,"The grand hall","A crystal chandelier over the stage"],[5.8,"Grand modern lighting","Warm lights across the ceiling"],[11.8,"Fully centralised AC","Cool, comfortable seating"],[19.8,"1000+ chairs","Comfortable seating for every guest"],[25.8,"Kalyana Vinayagar","Inside the compound wall"],[32.8,"Power backup unit","Lights and AC stay on"],[35.8,"Big car parking","Inside the compound wall"],[42.8,"The dining hall","500 seating capacity"],[50.8,"Luxury rooms","Rest and get ready"],[56.8,"The hall, once more","Balcony, chandelier and seating"]];
 const film=$('film'),fv=$('fv'),cap=$('fcap');
 if(matchMedia('(prefers-reduced-motion: reduce)').matches){film.classList.add('static');fv.controls=true;fv.muted=true;}
 else{
