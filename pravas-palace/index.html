@@ -205,11 +205,11 @@ dialog#lb button{position:absolute;top:10px;right:10px;width:46px;height:46px;bo
 .hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .hero .scrim{background:linear-gradient(180deg,color-mix(in srgb,var(--abyss) 70%,transparent) 0,transparent 22%,transparent 40%,color-mix(in srgb,var(--abyss) 85%,transparent) 76%,var(--abyss) 100%),linear-gradient(90deg,color-mix(in srgb,var(--abyss) 60%,transparent) 0,transparent 65%)}
 /* scroll film */
-.film{position:relative;height:720vh;background:var(--abyss);color:var(--ivory)}
+.film{position:relative;height:1150vh;background:var(--abyss);color:var(--ivory)}
 .film .pin{position:sticky;top:0;height:100svh;overflow:hidden}
 .film video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:var(--abyss)}
-.film .shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,color-mix(in srgb,var(--abyss) 70%,transparent),transparent 25%,transparent 40%,color-mix(in srgb,var(--abyss) 92%,transparent))}
-.film .cap{position:absolute;left:max(5vw,18px);right:max(5vw,18px);bottom:clamp(44px,9vh,96px);transition:opacity .35s,transform .35s}
+.film .shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,color-mix(in srgb,var(--abyss) 82%,transparent),color-mix(in srgb,var(--abyss) 45%,transparent) 38%,transparent 62%,color-mix(in srgb,var(--abyss) 40%,transparent))}
+.film .cap{position:absolute;left:max(5vw,18px);right:max(5vw,18px);top:clamp(140px,21vh,210px);transition:opacity .35s,transform .35s}
 .film .cap.swap{opacity:0;transform:translateY(10px)}
 .film .cap small{display:block;font-size:14px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold2);margin-bottom:10px}
 .film .cap h3{font-size:clamp(40px,7vw,92px);line-height:1}
@@ -217,7 +217,7 @@ dialog#lb button{position:absolute;top:10px;right:10px;width:46px;height:46px;bo
 .film .top{position:absolute;top:92px;left:max(5vw,18px);right:max(5vw,18px);display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:14px;color:#eadcd2}
 .film .bar{position:absolute;left:0;bottom:0;height:3px;width:100%;background:#ffffff26}
 .film .bar i{display:block;height:100%;width:0;background:var(--gold)}
-.film .hintx{position:absolute;right:max(5vw,18px);bottom:clamp(44px,9vh,96px);font-size:14px;color:var(--gold2);transition:opacity .4s}
+.film .hintx{position:absolute;left:max(5vw,18px);top:calc(clamp(140px,21vh,210px) + clamp(130px,18vw,200px));font-size:14px;color:var(--gold2);transition:opacity .4s}
 .film.static{height:auto;padding:clamp(64px,9vw,128px) max(5vw,18px)}
 .film.static .pin{position:relative;height:auto;aspect-ratio:16/9;max-width:1100px;margin:0 auto}
 .film.static .shade,.film.static .cap,.film.static .top,.film.static .bar,.film.static .hintx{display:none}
@@ -436,7 +436,7 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.targ
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
 /* scroll film: scrolling moves the video forward and backward */
-const CH=[[0,'Arrival','The Pravas Palace building'],[6,'The grand hall','A crystal chandelier over the stage'],[11,'Grand modern lighting','Warm lights across the ceiling'],[17,'Lift facilities','A well-maintained lift'],[21,'Fully centralised AC','Cool, comfortable seating'],[29,'1000+ chairs','Comfortable seating for every guest'],[35,'Kalyana Vinayagar','Inside the compound wall'],[42,'Power backup unit','Lights and AC stay on'],[45,'Big car parking','Inside the compound wall'],[52,'The dining hall','500 seating capacity'],[60,'Luxury rooms','Rest and get ready'],[66,'The hall, once more','Balcony, chandelier and seating']];
+const CH=[[0,"Arrival","The Pravas Palace building"],[3.0,"The grand hall","A crystal chandelier over the stage"],[6.1,"Grand modern lighting","Warm lights across the ceiling"],[12.1,"Fully centralised AC","Cool, comfortable seating"],[20.1,"1000+ chairs","Comfortable seating for every guest"],[26.1,"Kalyana Vinayagar","Inside the compound wall"],[33.1,"Power backup unit","Lights and AC stay on"],[36.1,"Big car parking","Inside the compound wall"],[43.1,"The dining hall","500 seating capacity"],[51.1,"Luxury rooms","Rest and get ready"],[57.1,"The hall, once more","Balcony, chandelier and seating"]];
 const film=$('film'),fv=$('fv'),cap=$('fcap');
 if(matchMedia('(prefers-reduced-motion: reduce)').matches){film.classList.add('static');fv.controls=true;fv.muted=true;}
 else{
@@ -447,7 +447,7 @@ else{
  addEventListener('scroll',calc,{passive:true});addEventListener('resize',calc);fv.addEventListener('loadedmetadata',calc);
  new IntersectionObserver(es=>{on=es[0].isIntersecting;if(on)calc();}).observe(film);
  set(0);$('ftitle').textContent=CH[0][1];$('fsub').textContent=CH[0][2];
- (function loop(){requestAnimationFrame(loop);if(!on)return;cur+=(target-cur)*.12;if(Math.abs(cur-target)<.01)cur=target;if(!fv.seeking&&Math.abs(fv.currentTime-cur)>.02)fv.currentTime=cur;})();
+ (function loop(){requestAnimationFrame(loop);if(!on)return;cur+=(target-cur)*.055;if(Math.abs(cur-target)<.01)cur=target;if(!fv.seeking&&Math.abs(fv.currentTime-cur)>.02)fv.currentTime=cur;})();
 }
 
 /* whatsapp */
