@@ -223,6 +223,7 @@ dialog#lb button{position:absolute;top:10px;right:10px;width:46px;height:46px;bo
 .film.static .shade,.film.static .cap,.film.static .top,.film.static .bar,.film.static .hintx{display:none}
 .after{background:var(--abyss);padding:0 max(5vw,18px) clamp(40px,6vw,72px);text-align:center}
 </style>
+<link rel="stylesheet" href="css/premium.css">
 </head>
 <body>
 
@@ -287,6 +288,15 @@ dialog#lb button{position:absolute;top:10px;right:10px;width:46px;height:46px;bo
   <div class="wrap">
     <div class="head2 reveal"><div><span class="ta">படங்கள்</span><h2>Gallery</h2></div><p class="muted">Stills from the walkthrough film. Tap a picture to enlarge it.</p></div>
     <div class="tabs reveal" id="tabs"><button type="button" data-cat="all" aria-pressed="true">All</button><button type="button" data-cat="hall" aria-pressed="false">The hall</button><button type="button" data-cat="dining" aria-pressed="false">Dining</button><button type="button" data-cat="rooms" aria-pressed="false">Rooms</button><button type="button" data-cat="outside" aria-pressed="false">Outside</button></div>
+    <div class="gal reveal" id="gal"></div>
+  </div>
+</section>
+<dialog id="lb"><img alt=""><button type="button" aria-label="Close picture">&times;</button></dialog>
+
+<section class="band" id="gallery" style="background:var(--paper2)">
+  <div class="wrap">
+    <div class="head2 reveal"><div><span class="ta">படங்கள்</span><h2>Gallery</h2></div><p class="muted">Renders from our 3D model of the hall. Real photographs will be added here.</p></div>
+    <div class="tabs reveal" id="tabs"><button type="button" data-cat="all" aria-pressed="true">All</button><button type="button" data-cat="hall" aria-pressed="false">The hall</button><button type="button" data-cat="stage" aria-pressed="false">Stage</button><button type="button" data-cat="dining" aria-pressed="false">Dining</button></div>
     <div class="gal reveal" id="gal"></div>
   </div>
 </section>
@@ -446,5 +456,6 @@ function wa(pkg){const t=pkg?`Hello Pravas Palace, I'm interested in the ${pkg} 
 document.querySelectorAll('a.wa').forEach(a=>a.href=wa(a.dataset.pkg));
 }
 </script>
+<script src="js/premium.js"></script>
 </body>
 </html>
