@@ -389,7 +389,7 @@ dialog#lb button{position:absolute;top:10px;right:10px;width:46px;height:46px;bo
     </div>
     <div class="contact">
       <div><span>Address</span>Omandhur, Tindivanam to Pondicherry highway</div>
-      <div><span>For booking</span><a href="tel:+919789832470">97898 32470</a></div>
+      <div><span>Phone</span>To be added</div>
       <div><span>WhatsApp</span><a class="wa" href="#" target="_blank" rel="noopener">Chat with us</a></div>
       <div><span>Visiting hours</span>To be confirmed</div>
     </div>
@@ -451,7 +451,7 @@ else{
 }
 
 /* whatsapp */
-const WA_NUMBER='919789832470';/* booking number shown in the hall's film; change if the WhatsApp number differs */
+const WA_NUMBER='';/* hall's WhatsApp number with country code, digits only, e.g. 919876543210 */
 function wa(pkg){const t=pkg?`Hello Pravas Palace, I'm interested in the ${pkg} package. Is my date available?`:'Hello Pravas Palace, I would like to check date availability and rates.';return 'https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent(t);}
 document.querySelectorAll('a.wa').forEach(a=>a.href=wa(a.dataset.pkg));
 }
