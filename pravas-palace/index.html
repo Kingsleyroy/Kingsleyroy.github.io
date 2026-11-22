@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pravas Palace, Tindivanam | Wedding Hall 3D Tour (Demo)</title>
+<title>Pravas Palace, Tindivanam | Wedding Hall and Convention Centre (Demo)</title>
 <meta name="description" content="Demo website for Pravas Palace, a wedding hall in Tindivanam: interactive 3D tour of the hall, mandapam and dining hall, packages and date enquiry.">
 <meta name="robots" content="noindex">
 <meta property="og:title" content="Pravas Palace, Tindivanam (Demo)">
-<meta property="og:description" content="Walk through the hall, mandapam and dining hall in 3D.">
+<meta property="og:description" content="Walk through Pravas Palace in a scroll-driven film.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232a0a12'/%3E%3Ctext x='16' y='23' text-anchor='middle' font-family='Georgia,serif' font-size='20' fill='%23c9a25b'%3EP%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,11 +49,8 @@ nav.solid{background:color-mix(in srgb,var(--wine) 93%,transparent);backdrop-fil
 .navl a{flex:none;text-decoration:none;padding:10px 12px;font-size:15px;opacity:.88}.navl a:hover{opacity:1;color:var(--gold2)}
 @media(max-width:860px){.navl{display:none}nav .btn{padding-inline:18px}}
 /* hero */
-.hero{position:relative;height:100svh;min-height:600px;background:radial-gradient(ellipse at 50% 40%,var(--wine2),var(--abyss));color:var(--ivory);overflow:hidden}
-#gl{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:pan-y;cursor:grab}
-#gl:active{cursor:grabbing}
+.hero{position:relative;height:100svh;min-height:600px;background:var(--abyss);color:var(--ivory);overflow:hidden}
 .scrim{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,color-mix(in srgb,var(--abyss) 69%,transparent) 0,color-mix(in srgb,var(--abyss) 0%,transparent) 20%,color-mix(in srgb,var(--abyss) 0%,transparent) 38%,color-mix(in srgb,var(--abyss) 85%,transparent) 72%,color-mix(in srgb,var(--abyss) 97%,transparent) 100%),linear-gradient(90deg,color-mix(in srgb,var(--abyss) 60%,transparent) 0,color-mix(in srgb,var(--abyss) 0%,transparent) 60%);transition:opacity .6s}
-.fade{position:absolute;inset:0;background:var(--abyss);opacity:0;pointer-events:none;transition:opacity .45s}
 .hcopy{position:absolute;left:max(5vw,18px);right:max(5vw,18px);bottom:clamp(36px,7vh,80px);display:flex;align-items:end;justify-content:space-between;gap:28px;flex-wrap:wrap;transition:opacity .5s,transform .5s}
 .hcopy h1{font-size:clamp(60px,10vw,132px);letter-spacing:-.01em;margin:0 0 .12em}
 .hcopy h1 em{color:var(--gold2)}
@@ -62,17 +59,6 @@ nav.solid{background:color-mix(in srgb,var(--wine) 93%,transparent);backdrop-fil
 .glass{background:#ffffff12;backdrop-filter:blur(14px);border:1px solid #ffffff26;border-radius:4px;padding:18px 22px;display:flex;gap:28px}
 .glass b{display:block;font:500 34px/1 var(--serif);color:var(--gold2)}.glass small{font-size:13px;color:#e2d2c8}
 @media(max-width:700px){.glass{display:none}}
-.tourui{position:absolute;inset:auto 0 0;padding:20px max(4vw,14px) clamp(20px,4vh,36px);display:grid;gap:14px;justify-items:center;opacity:0;pointer-events:none;transform:translateY(16px);transition:opacity .5s,transform .5s}
-.chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
-.chips button{min-height:46px;padding:10px 18px;border-radius:40px;border:1px solid #ffffff40;background:color-mix(in srgb,var(--abyss) 60%,transparent);backdrop-filter:blur(8px);color:var(--ivory);font:400 15px var(--sans);cursor:pointer}
-.chips button[aria-pressed=true]{background:var(--gold);color:var(--on-gold);border-color:var(--gold)}
-.hint{font-size:14px;color:#eadcd2;background:color-mix(in srgb,var(--abyss) 60%,transparent);padding:6px 14px;border-radius:30px}
-.exit{position:absolute;top:84px;right:max(4vw,14px);opacity:0;pointer-events:none;transition:opacity .4s}
-.now{position:absolute;top:88px;left:max(4vw,14px);font:italic 500 26px var(--serif);opacity:0;transition:opacity .4s;text-shadow:0 2px 12px #000a}
-.hero.touring .hcopy{opacity:0;transform:translateY(20px);pointer-events:none}
-.hero.touring .scrim{opacity:.35}
-.hero.touring .tourui,.hero.touring .exit,.hero.touring .now{opacity:1;pointer-events:auto;transform:none}
-.nogl{position:absolute;inset:0;display:grid;place-items:center;color:#d6c2b8;font-size:15px;padding:24px;text-align:center}
 /* intro */
 .intro{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(32px,6vw,96px);align-items:end}
 .intro .big{font:500 clamp(30px,3.6vw,46px)/1.15 var(--serif);text-wrap:pretty;margin:0}
@@ -95,13 +81,6 @@ nav.solid{background:color-mix(in srgb,var(--wine) 93%,transparent);backdrop-fil
 .dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 24px;margin:22px 0 26px;padding:18px 0;border-block:1px solid var(--line);font-size:15px}
 .dl b{display:block;font-weight:400;color:var(--soft);font-size:13px}
 @media(max-width:820px){.spread{grid-template-columns:minmax(0,1fr)}.spread:nth-child(even) .shot{order:0}}
-/* video */
-.vid{position:relative;aspect-ratio:16/9;background:var(--abyss) center/cover no-repeat;border-radius:2px;overflow:hidden;margin-top:36px}
-.vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.vid button{position:absolute;inset:0;width:100%;border:0;background:linear-gradient(color-mix(in srgb,var(--abyss) 20%,transparent),color-mix(in srgb,var(--abyss) 60%,transparent));color:var(--ivory);cursor:pointer;display:grid;place-content:center;justify-items:center;gap:14px;font:400 18px var(--sans)}
-.vid button i{width:84px;height:84px;border-radius:50%;background:var(--gold);display:grid;place-items:center;transition:transform .25s}
-.vid button:hover i{transform:scale(1.08)}
-.vid button i::after{content:"";margin-left:6px;border-left:24px solid var(--on-gold);border-block:15px solid transparent}
 /* services */
 .svc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 clamp(24px,4vw,56px);margin-top:48px}
 .svc div{border-top:1px solid color-mix(in srgb,var(--gold) 40%,transparent);padding:26px 0 30px}
@@ -218,9 +197,31 @@ dialog#lb button{position:absolute;top:10px;right:10px;width:46px;height:46px;bo
 /* floating whatsapp */
 .fab{position:fixed;right:max(18px,2vw);bottom:18px;z-index:40;display:inline-flex;align-items:center;gap:10px;min-height:54px;padding:0 22px 0 18px;border-radius:40px;background:#25D366;color:#073b1b;font:500 16px var(--sans);text-decoration:none;box-shadow:0 10px 30px -8px #000a}
 .fab svg{width:26px;height:26px;fill:currentColor}
+.fab{transition:opacity .3s,transform .3s}.fab.off{opacity:0;pointer-events:none;transform:translateY(12px)}
 .fab:hover{background:#3be07b}
 @media(max-width:560px){.fab{padding:0 16px}.fab b{display:none}}
-body:has(.hero.touring) .fab{display:none}
+
+/* hero video */
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero .scrim{background:linear-gradient(180deg,color-mix(in srgb,var(--abyss) 70%,transparent) 0,transparent 22%,transparent 40%,color-mix(in srgb,var(--abyss) 85%,transparent) 76%,var(--abyss) 100%),linear-gradient(90deg,color-mix(in srgb,var(--abyss) 60%,transparent) 0,transparent 65%)}
+/* scroll film */
+.film{position:relative;height:720vh;background:var(--abyss);color:var(--ivory)}
+.film .pin{position:sticky;top:0;height:100svh;overflow:hidden}
+.film video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:var(--abyss)}
+.film .shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,color-mix(in srgb,var(--abyss) 70%,transparent),transparent 25%,transparent 40%,color-mix(in srgb,var(--abyss) 92%,transparent))}
+.film .cap{position:absolute;left:max(5vw,18px);right:max(5vw,18px);bottom:clamp(44px,9vh,96px);transition:opacity .35s,transform .35s}
+.film .cap.swap{opacity:0;transform:translateY(10px)}
+.film .cap small{display:block;font-size:14px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold2);margin-bottom:10px}
+.film .cap h3{font-size:clamp(40px,7vw,92px);line-height:1}
+.film .cap p{margin:10px 0 0;font-size:clamp(17px,1.8vw,22px);color:#eadcd2}
+.film .top{position:absolute;top:92px;left:max(5vw,18px);right:max(5vw,18px);display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:14px;color:#eadcd2}
+.film .bar{position:absolute;left:0;bottom:0;height:3px;width:100%;background:#ffffff26}
+.film .bar i{display:block;height:100%;width:0;background:var(--gold)}
+.film .hintx{position:absolute;right:max(5vw,18px);bottom:clamp(44px,9vh,96px);font-size:14px;color:var(--gold2);transition:opacity .4s}
+.film.static{height:auto;padding:clamp(64px,9vw,128px) max(5vw,18px)}
+.film.static .pin{position:relative;height:auto;aspect-ratio:16/9;max-width:1100px;margin:0 auto}
+.film.static .shade,.film.static .cap,.film.static .top,.film.static .bar,.film.static .hintx{display:none}
+.after{background:var(--abyss);padding:0 max(5vw,18px) clamp(40px,6vw,72px);text-align:center}
 </style>
 </head>
 <body>
@@ -230,67 +231,62 @@ body:has(.hero.touring) .fab{display:none}
     <svg viewBox="0 0 34 40" aria-hidden="true"><path d="M2 39V17A15 15 0 0 1 32 17V39" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M7 39V19A10 10 0 0 1 27 19V39" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="17" cy="6" r="2" fill="currentColor"/><text x="17" y="33" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="14" style="fill:var(--gold2)">P</text></svg>
     <span>Pravas Palace</span>
   </a>
-  <div class="navl"><a href="#video">Video</a><a href="#spaces">Spaces</a><a href="#gallery">Gallery</a><a href="#packages">Packages</a><a href="#faq">FAQ</a><a href="#book">Contact</a></div>
+  <div class="navl"><a href="#film">Walkthrough</a><a href="#spaces">Spaces</a><a href="#gallery">Gallery</a><a href="#packages">Packages</a><a href="#faq">FAQ</a><a href="#book">Contact</a></div>
   <a class="btn gold wa" href="#" target="_blank" rel="noopener">Book on WhatsApp</a>
 </nav>
 
 <header class="hero" id="top">
-  <canvas id="gl" aria-label="Interactive 3D view of the Pravas Palace wedding hall"></canvas>
+  <video autoplay muted loop playsinline preload="auto" poster="media/img/exterior-day.jpg" aria-label="Pravas Palace building and hall"><source src="media/hero.mp4" type="video/mp4"></video>
   <div class="scrim"></div>
-  <div class="now" id="now">The grand hall</div>
   <div class="hcopy">
     <div>
       <span class="ta">பிரவாஸ் பேலஸ் · திண்டிவனம்</span>
       <h1>Pravas <em>Palace</em></h1>
-      <p>A wedding hall in Tindivanam you can walk through tonight. Step inside the hall, stand on the mandapam and see the dining hall before you visit.</p>
-      <div class="hacts">
-        <button class="btn gold" id="enter">Enter the 3D tour</button>
-        <a class="btn line wa" href="#" target="_blank" rel="noopener">Check dates on WhatsApp</a>
-      </div>
+      <p>A grand, fully air-conditioned hall on the Tindivanam to Pondicherry highway, with 1000+ chairs, a 500-seat dining hall, luxury rooms and parking inside the compound.</p>
+      <div class="hacts"><a class="btn gold" href="#film">Watch the walkthrough</a><a class="btn line wa" href="#" target="_blank" rel="noopener">Check dates on WhatsApp</a></div>
     </div>
-    <div class="glass"><div><b>800</b><small>guests seated</small></div><div><b>400</b><small>dining at once</small></div><div><b>Full AC</b><small>hall and dining</small></div></div>
+    <div class="glass"><div><b>1000+</b><small>chairs</small></div><div><b>500</b><small>dining at once</small></div><div><b>Full AC</b><small>centralised</small></div></div>
   </div>
-  <button class="btn line exit" id="exit">Close tour</button>
-  <div class="tourui">
-    <div class="chips" id="chips"></div>
-    <span class="hint">Drag to look around · tap a place to move</span>
-  </div>
-  <div class="fade" id="fade"></div>
 </header>
 
-<div class="tick"><span>Full AC</span><span>Generator backup</span><span>Parking</span><span>Separate dining hall</span><span>Attached kitchen</span><span>Six family rooms</span></div>
+<div class="tick"><span>Fully centralised AC</span><span>1000+ chairs</span><span>Dining hall</span><span>Lift</span><span>Luxury rooms</span><span>Power backup</span><span>Big car parking</span></div>
 
 <section class="band">
   <div class="wrap intro reveal">
     <div>
       <span class="ta">வரவேற்கிறோம்</span>
-      <p class="big">Every wedding begins with a walk through the doors. At Pravas Palace, that walk starts <em>here</em>: the hall, the mandapam and the dining hall, open to explore from anywhere.</p>
+      <p class="big">Weddings, receptions, conferences and concerts, under one roof. Scroll down to <em>walk through</em> the hall, the dining hall and the rooms, just as they are.</p>
     </div>
     <div>
-      <p class="muted">A full-service kalyana mandapam built for South Indian weddings, receptions and family functions, with a stage made for the muhurtham, a dining hall for banana-leaf meals, rooms for both families and parking for your guests.</p>
-      <div class="stats"><div><b>800</b><span>seated guests</span></div><div><b>400</b><span>per dining sitting</span></div><div><b>6</b><span>family rooms</span></div></div>
-      <p class="note">Capacity, prices and booked dates on this page are sample content until confirmed by the hall.</p>
+      <p class="muted">Pravas Palace is a palace-style convention hall in Omandhur, Tindivanam, built for weddings and family functions as well as corporate meetings and events. It has a grand chandelier hall, a dining hall, luxury rooms, a lift, a Kalyana Vinayagar shrine, power backup and big car parking inside the compound.</p>
+      <div class="stats"><div><b>1000+</b><span>chairs in the hall</span></div><div><b>500</b><span>dining capacity</span></div><div><b>Lift</b><span>in the building</span></div></div>
+      <p class="note">Package prices, reviews and FAQ answers on this page are sample content until confirmed by the hall.</p>
     </div>
   </div>
 </section>
 
-<section class="band dark" id="video">
-  <div class="wrap">
-    <div class="head2 reveal"><div><span class="ta">காணொளி</span><h2>See the hall on video</h2></div><p class="muted">A full walk-through of the hall, filmed on site.</p></div>
-    <div class="vid reveal" id="vid" style="background-image:url(https://i.ytimg.com/vi/LTaBoJVCuFU/hqdefault.jpg)"><button type="button" id="vplay" aria-label="Play the hall video"><i></i>Play the hall video</button></div>
+<section class="film" id="film" aria-label="Scroll walkthrough of Pravas Palace">
+  <div class="pin">
+    <video id="fv" muted playsinline preload="auto" tabindex="-1"><source src="media/film.mp4" type="video/mp4"></video>
+    <div class="shade"></div>
+    <div class="top"><span>The walkthrough</span><span id="fcount">01 / 12</span></div>
+    <div class="cap" id="fcap"><small id="fkick">Arrival</small><h3 id="ftitle"></h3><p id="fsub"></p></div>
+    <span class="hintx" id="fhint">Scroll to walk through</span>
+    <div class="bar"><i id="fbar"></i></div>
   </div>
 </section>
+<div class="after"><a class="link" href="https://www.youtube.com/watch?v=LTaBoJVCuFU" target="_blank" rel="noopener">Watch the full film on YouTube →</a></div>
 
-<section class="band" id="spaces" style="padding-top:0">
+<section class="band" id="spaces">
   <div class="wrap" id="spreads">
-    <div class="head2 reveal"><div><span class="ta">இடங்கள்</span><h2>The spaces</h2></div><p class="muted">Each image is taken from the 3D model of the hall. Open any space to stand in it.</p></div>
+    <div class="head2 reveal"><div><span class="ta">இடங்கள்</span><h2>The spaces</h2></div><p class="muted">Every picture is a still from the hall's own film.</p></div>
   </div>
 </section>
 
 <section class="band" id="gallery" style="background:var(--paper2)">
   <div class="wrap">
-    <div class="head2 reveal"><div><span class="ta">படங்கள்</span><h2>Gallery</h2></div><p class="muted">Renders from our 3D model of the hall. Real photographs will be added here.</p></div>
-    <div class="tabs reveal" id="tabs"><button type="button" data-cat="all" aria-pressed="true">All</button><button type="button" data-cat="hall" aria-pressed="false">The hall</button><button type="button" data-cat="stage" aria-pressed="false">Stage</button><button type="button" data-cat="dining" aria-pressed="false">Dining</button></div>
+    <div class="head2 reveal"><div><span class="ta">படங்கள்</span><h2>Gallery</h2></div><p class="muted">Stills from the walkthrough film. Tap a picture to enlarge it.</p></div>
+    <div class="tabs reveal" id="tabs"><button type="button" data-cat="all" aria-pressed="true">All</button><button type="button" data-cat="hall" aria-pressed="false">The hall</button><button type="button" data-cat="dining" aria-pressed="false">Dining</button><button type="button" data-cat="rooms" aria-pressed="false">Rooms</button><button type="button" data-cat="outside" aria-pressed="false">Outside</button></div>
     <div class="gal reveal" id="gal"></div>
   </div>
 </section>
@@ -298,27 +294,28 @@ body:has(.hero.touring) .fab{display:none}
 
 <section class="band dark" id="services">
   <div class="wrap">
-    <div class="head2 reveal"><div><span class="ta">சேவைகள்</span><h2>Everything for the day</h2></div><p class="muted">The hall team helps you with the details, so your family can be with your guests.</p></div>
+    <div class="head2 reveal"><div><span class="ta">சேவைகள்</span><h2>Everything for the day</h2></div><p class="muted">What the hall offers, as shown in the film.</p></div>
     <div class="svc reveal" id="svc"></div>
   </div>
 </section>
 
 <section class="band" id="events" style="background:var(--paper2)">
   <div class="wrap">
-    <div class="head2 reveal"><div><span class="ta">நிகழ்வுகள்</span><h2>Every kind of celebration</h2></div><p class="muted">The same hall, dressed and arranged for the day you are planning.</p></div>
+    <div class="head2 reveal"><div><span class="ta">நிகழ்வுகள்</span><h2>Every kind of event</h2></div><p class="muted">Parties, conferences, weddings, concerts, corporate meetings and all events.</p></div>
     <div class="events reveal">
-      <div class="ev"><h3>Weddings</h3><p>Muhurtham on the mandapam stage with seating for the whole family and the wider community.</p></div>
-      <div class="ev"><h3>Receptions</h3><p>An evening on the stage with lights, music and a steady line of guests to greet you.</p></div>
-      <div class="ev"><h3>Engagements</h3><p>A warm, smaller setting for the nichayathartham, with the dining hall close by.</p></div>
-      <div class="ev"><h3>Family functions</h3><p>Birthdays, ear-piercing, puberty and housewarming functions, planned to your numbers.</p></div>
+      <div class="ev"><h3>Weddings</h3><p>A grand hall under a crystal chandelier, with seating for 1000+ and rooms for both families.</p></div>
+      <div class="ev"><h3>Receptions and parties</h3><p>A wide stage, warm lighting and a red-carpet aisle for an evening to remember.</p></div>
+      <div class="ev"><h3>Conferences and meetings</h3><p>A fully air-conditioned hall with a lift, parking and power backup for corporate days.</p></div>
+      <div class="ev"><h3>Concerts and more</h3><p>Open floor, a large stage and a balcony level for audiences and performances.</p></div>
     </div>
-    <table class="cap reveal"><caption>Capacity at a glance</caption>
-      <thead><tr><th>Space</th><th>Capacity</th><th>Good for</th></tr></thead>
+    <table class="cap reveal"><caption>At a glance</caption>
+      <thead><tr><th>Space</th><th>What you get</th></tr></thead>
       <tbody>
-        <tr><td>Main hall</td><td>800 seated</td><td>Muhurtham, reception</td></tr>
-        <tr><td>Dining hall</td><td>400 per sitting</td><td>Banana-leaf meals</td></tr>
-        <tr><td>Mandapam stage</td><td>18 m wide</td><td>Rituals, photos, receptions</td></tr>
-        <tr><td>Family rooms</td><td>6 rooms</td><td>Bride, groom and families</td></tr>
+        <tr><td>Main hall</td><td>1000+ chairs, fully centralised AC, grand modern lighting</td></tr>
+        <tr><td>Dining hall</td><td>500 seating capacity</td></tr>
+        <tr><td>Luxury rooms</td><td>Rooms to rest and get ready</td></tr>
+        <tr><td>Building</td><td>Lift facilities</td></tr>
+        <tr><td>Compound</td><td>Kalyana Vinayagar shrine, power backup unit, big car parking</td></tr>
       </tbody>
     </table>
   </div>
@@ -326,7 +323,7 @@ body:has(.hero.touring) .fab{display:none}
 
 <section class="band" id="packages">
   <div class="wrap">
-    <div class="head2 reveal"><div><span class="ta">தொகுப்புகள்</span><h2>Packages</h2></div><p class="muted">Choose the hall on its own, or let us look after the stage, lights and rooms.</p></div>
+    <div class="head2 reveal"><div><span class="ta">தொகுப்புகள்</span><h2>Packages</h2></div><p class="muted">Sample packages and prices. Message us for the current rates.</p></div>
     <div class="tiers reveal" id="tiers"></div>
   </div>
 </section>
@@ -337,20 +334,21 @@ body:has(.hero.touring) .fab{display:none}
     <div class="quotes reveal">
       <blockquote><p>The hall looked beautiful and our guests were comfortable all day. The team handled everything calmly.</p><cite>Sample review · Wedding</cite></blockquote>
       <blockquote><p>The dining hall made serving hundreds of guests so easy. Meals were on time and nobody had to wait.</p><cite>Sample review · Reception</cite></blockquote>
-      <blockquote><p>We saw the hall online first and it was exactly the same when we visited. We booked that day.</p><cite>Sample review · Engagement</cite></blockquote>
+      <blockquote><p>We saw the hall on the website first and it was exactly the same when we visited. We booked that day.</p><cite>Sample review · Engagement</cite></blockquote>
     </div>
   </div>
 </section>
 
 <section class="band" id="faq">
   <div class="wrap">
-    <div class="reveal" style="text-align:center"><span class="ta">கேள்விகள்</span><h2>Questions families ask</h2><p class="muted" style="margin-top:10px">Sample answers. The hall will confirm the real terms.</p></div>
+    <div class="reveal" style="text-align:center"><span class="ta">கேள்விகள்</span><h2>Questions families ask</h2><p class="muted" style="margin-top:10px">The hall team will confirm every detail when you message.</p></div>
     <div class="faq reveal">
       <details><summary>How early should we book?</summary><p>For wedding dates, as early as you can, especially around auspicious days. Message us on WhatsApp and we will tell you if your date is free.</p></details>
-      <details><summary>Can we bring our own caterer?</summary><p>Yes. The attached kitchen can be used by in-house or outside caterers.</p></details>
-      <details><summary>Who arranges the stage decoration?</summary><p>We work with trusted decorators, or you can bring your own. Share your theme and we will plan it with you.</p></details>
-      <details><summary>Is the hall air-conditioned?</summary><p>Yes. The main hall and the dining hall are fully air-conditioned, with generator backup.</p></details>
-      <details><summary>Can we visit before booking?</summary><p>Of course. Take the 3D tour here first, then come and see the hall with your family.</p></details>
+      <details><summary>Is the hall air-conditioned?</summary><p>Yes. The main hall is fully centralised AC, and the hall has a power backup unit.</p></details>
+      <details><summary>How many guests can sit?</summary><p>The main hall has 1000+ chairs, and the dining hall seats 500.</p></details>
+      <details><summary>Is there a lift and parking?</summary><p>Yes. The building has a lift, and there is big car parking inside the compound wall.</p></details>
+      <details><summary>Are there rooms for the families?</summary><p>Yes, the hall has luxury rooms where the families can rest and get ready.</p></details>
+      <details><summary>Can we visit before booking?</summary><p>Of course. Watch the walkthrough here first, then come and see the hall with your family.</p></details>
     </div>
   </div>
 </section>
@@ -359,9 +357,9 @@ body:has(.hero.touring) .fab{display:none}
   <div class="wrap">
     <div class="reveal"><span class="ta">முன்பதிவு</span><h2>Plan your date</h2></div>
     <div class="steps reveal">
-      <div><i>i</i><p><b>Take the 3D tour</b><span>Walk the hall, stage and dining area from home.</span></p></div>
+      <div><i>i</i><p><b>Watch the walkthrough</b><span>See the hall, dining hall and rooms from home.</span></p></div>
       <div><i>ii</i><p><b>Message us on WhatsApp</b><span>Tell us your date and the number of guests.</span></p></div>
-      <div><i>iii</i><p><b>Visit and confirm</b><span>See the hall in person and hold your muhurtham.</span></p></div>
+      <div><i>iii</i><p><b>Visit and confirm</b><span>See the hall in person and hold your date.</span></p></div>
     </div>
     <div class="panel reveal" style="text-align:center;padding-block:clamp(36px,6vw,64px)">
       <h3>Check your date on WhatsApp</h3>
@@ -376,12 +374,12 @@ body:has(.hero.touring) .fab{display:none}
     <div>
       <span class="ta">எங்களை காண</span>
       <h2>Come and see it</h2>
-      <p class="muted" style="margin-top:18px;max-width:28em">The 3D tour shows you the rooms. A visit shows you the light, the space and the welcome. We'd be glad to walk you through.</p>
-      <div class="hacts"><a class="btn gold" href="https://www.google.com/maps/search/Pravas+Palace+Tindivanam">Open in Google Maps</a><a class="btn line wa" href="#" target="_blank" rel="noopener">Message on WhatsApp</a></div>
+      <p class="muted" style="margin-top:18px;max-width:28em">The film shows you the rooms. A visit shows you the light, the space and the welcome. We'd be glad to walk you through.</p>
+      <div class="hacts"><a class="btn gold" href="https://www.google.com/maps/search/Pravas+Palace+Omandhur+Tindivanam" target="_blank" rel="noopener">Open in Google Maps</a><a class="btn line wa" href="#" target="_blank" rel="noopener">Message on WhatsApp</a></div>
     </div>
     <div class="contact">
-      <div><span>Location</span>Tindivanam, Villupuram district, Tamil Nadu</div>
-      <div><span>Address</span>To be added</div>
+      <div><span>Address</span>Omandhur, Tindivanam to Pondicherry highway</div>
+      <div><span>For booking</span><a href="tel:+919789832470">97898 32470</a></div>
       <div><span>WhatsApp</span><a class="wa" href="#" target="_blank" rel="noopener">Chat with us</a></div>
       <div><span>Visiting hours</span>To be confirmed</div>
     </div>
@@ -390,268 +388,60 @@ body:has(.hero.touring) .fab{display:none}
 
 <footer>
   <div class="word">Pravas Palace</div>
-  <div class="row"><span>Weddings · Receptions · Family functions · Tindivanam</span><span>Hall images are renders from a 3D model. Real photography to follow. Demo site: all details are sample content.</span></div>
+  <div class="row"><span>Weddings · Receptions · Conferences · Concerts · Tindivanam</span><span>Walkthrough footage by Zero Artistic Designs. Demo site: prices, reviews and some details are sample content.</span></div>
 </footer>
 
-<a class="fab wa" href="#" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.700 14.900L2 22l5.300-1.300A10 10 0 1 0 12 2z"/><path style="fill:#25D366" d="M9.200 6.800c-.5 0-1 .3-1.200 1-.3 1.200.2 2.700 1.500 4.200 1.400 1.600 3.200 2.500 4.500 2.800.9.200 1.800-.4 1.900-1.200l-1.800-1-.9.900c-1.100-.4-2.100-1.400-2.600-2.500l.9-.9z"/></svg><b>WhatsApp</b></a>
+<a class="fab wa" href="#" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.3A10 10 0 1 0 12 2z"/><path style="fill:#25D366" d="M9.2 6.8c-.5 0-1 .3-1.2 1-.3 1.2.2 2.7 1.5 4.2 1.4 1.6 3.2 2.5 4.5 2.8.9.2 1.8-.4 1.9-1.2l-1.8-1-.9.9c-1.1-.4-2.1-1.4-2.6-2.5l.9-.9z"/></svg><b>WhatsApp</b></a>
 
-<script src="js/three.min.js"></script>
 <script>
 {
 const $=id=>document.getElementById(id);
-
-/* ---------- content ---------- */
+const IMG='media/img/';
 const spaces=[
- {v:'gallery',t:'The grand hall',ta:'திருமண மண்டபம்',d:'A high, pillared hall with crystal chandeliers, a red-carpet aisle lined with brass lamps and seating for 800 guests, all with a clear view of the stage.',f:[['Seated','800 guests'],['Ceiling','10 m high'],['Climate','Fully air-conditioned'],['Sound','Stage audio ready']]},
- {v:'mandapam',t:'The mandapam stage',ta:'மேடை',d:'A wide, raised stage with a gold mandapam, a curtain of marigold and jasmine, and room for the priest, the couple and both families during the muhurtham.',f:[['Stage','18 m wide'],['Backdrop','Flower curtain'],['Access','Steps at the front'],['Lighting','Warm stage spots']]},
- {v:'dining',t:'The dining hall',ta:'உணவுக் கூடம்',d:'Long tables set for traditional banana-leaf meals, with an attached kitchen for in-house or outside caterers and a separate entry from the main hall.',f:[['Per sitting','400 guests'],['Service','Banana-leaf meals'],['Kitchen','Attached'],['Entry','Separate']]},
- {v:'stage',t:'From the stage',ta:'மணமக்கள் பார்வை',d:'This is what the couple sees: every guest, the lamps along the aisle and the chandeliers overhead. A view worth remembering.',f:[['Couple seat','Velvet and gold'],['Lamps','Brass kuthuvilakku'],['Photos','Space for crews'],['Decor','Themes on request']]}
+ {i:'hall',t:'The grand hall',ta:'திருமண மண்டபம்',d:'A tall hall under a crystal chandelier, with a wide stage, a balcony level above and warm lighting throughout.',f:[['Seating','1000+ chairs'],['Lighting','Grand modern lighting'],['Climate','Fully centralised AC'],['Level','Balcony above']]},
+ {i:'seating',t:'Seating and aisle',ta:'இருக்கைகள்',d:'Row after row of comfortable chairs with a red-carpet aisle straight to the stage, so the whole family can sit together and see every moment.',f:[['Chairs','1000+'],['Aisle','Red carpet'],['Stage','Wide and open'],['Comfort','Centralised AC']]},
+ {i:'dining',t:'The dining hall',ta:'உணவுக் கூடம்',d:'Long tables and orange chairs in a bright, pillared hall, set to seat 500 guests at a time.',f:[['Capacity','500 seating'],['Tables','Long steel tables'],['Chairs','Orange chairs'],['Lighting','Bright and even']]},
+ {i:'rooms',t:'Luxury rooms',ta:'அறைகள்',d:'Clean, comfortable rooms where the bride, the groom and the families can rest and get ready for the day.',f:[['Rooms','Luxury rooms'],['Bed','Double bed'],['Use','Rest and dress'],['Access','Lift in the building']]},
+ {i:'exterior-night',t:'The compound',ta:'வளாகம்',d:'A white palace-style building with a Kalyana Vinayagar shrine, a power backup unit and big car parking, all inside the compound wall.',f:[['Shrine','Kalyana Vinayagar'],['Parking','Big car parking'],['Power','Backup unit'],['Lift','Available']]}
 ];
-const services=[
- ['Stage decoration','Flower curtains, mandapam dressing and themed backdrops arranged with trusted decorators.'],
- ['Catering kitchen','A fully equipped kitchen for in-house catering or the caterer of your choice.'],
- ['Family rooms','Six rooms for the bride, the groom and both families to rest and get ready.'],
- ['Parking','Parking for guests\' cars, with space for the wedding car at the entrance.'],
- ['Power backup','A generator that keeps the lights, sound and AC running throughout.'],
- ['Photo and video','Room on stage and in the aisle for your photography and video team.']
-];
+const gals=[['hall','The grand hall','hall'],['seating','Seating and aisle','hall'],['stage','The stage','hall'],['balcony','Balcony and ceiling','hall'],['chairs','1000+ chairs','hall'],['corridor','Corridor and lift','hall'],['dining','The dining hall','dining'],['rooms','Luxury rooms','rooms'],['exterior-day','The building','outside'],['exterior-night','At night','outside'],['temple','Kalyana Vinayagar','outside'],['power','Power backup unit','outside']];
+const ICON={ac:'<svg viewBox="0 0 32 32"><path d="M16 3v26M5 9l22 14M27 9 5 23M12 5l4 3 4-3M12 27l4-3 4 3"/></svg>',light:'<svg viewBox="0 0 32 32"><path d="M16 4a8 8 0 0 0-4 15v3h8v-3a8 8 0 0 0-4-15z"/><path d="M12 26h8M13 29h6"/></svg>',lift:'<svg viewBox="0 0 32 32"><rect x="6" y="3" width="20" height="26" rx="2"/><path d="M12 12l4-4 4 4M12 20l4 4 4-4"/></svg>',room:'<svg viewBox="0 0 32 32"><path d="M3 26V8M3 20h26v6M29 20v-5a4 4 0 0 0-4-4H13v9"/><circle cx="8" cy="15" r="2.5"/></svg>',power:'<svg viewBox="0 0 32 32"><path d="M18 3 8 18h7l-2 11 11-16h-7z"/></svg>',park:'<svg viewBox="0 0 32 32"><rect x="5" y="5" width="22" height="22" rx="3"/><path d="M12 22V10h5a3.5 3.5 0 0 1 0 7h-5"/></svg>'};
+const services=[['ac','Fully centralised AC','A cool, comfortable main hall in every season.'],['light','Grand modern lighting','A crystal chandelier and warm ceiling lights across the hall.'],['lift','Lift facilities','A well-maintained lift to every level of the building.'],['room','Luxury rooms','Comfortable rooms for the families to rest and get ready.'],['power','Power backup unit','A backup unit inside the compound keeps the day running.'],['park','Big car parking','Parking for guests inside the compound wall.']];
 const tiers=[
- {t:'Hall',p:'₹75,000',u:'per day',l:['Main hall and mandapam stage','Dining hall and kitchen','Two family rooms','Generator backup']},
- {t:'Wedding',p:'₹1,60,000',u:'per day',pick:1,l:['Everything in Hall','Flower curtain and mandapam decor','Entrance arch, lamps and lighting','All six family rooms']},
+ {t:'Hall',p:'₹75,000',u:'per day',l:['Main hall and stage','Dining hall','Two luxury rooms','Power backup']},
+ {t:'Wedding',p:'₹1,60,000',u:'per day',pick:1,l:['Everything in Hall','Stage and entrance decor','Lighting for the day','All luxury rooms']},
  {t:'Two days',p:'₹2,75,000',u:'reception and wedding',l:['Evening reception, next-day wedding','Two decoration themes','All rooms across both days','Priority setup and hand-over']}
 ];
-const views={
- entrance:{n:'The entrance',p:[0,1.75,23.5],l:[0,3,-22]},
- aisle:{n:'Down the aisle',p:[0,1.7,3],l:[0,2.7,-22]},
- mandapam:{n:'The mandapam',p:[0,2.4,-11],l:[0,3.6,-22.5]},
- stage:{n:'From the stage',p:[0,2.9,-20.4],l:[0,1.5,10]},
- gallery:{n:'The grand hall',p:[12.6,6.4,22.5],l:[-3,1.2,-12]},
- dining:{n:'The dining hall',p:[90,1.7,13.5],l:[90,.9,-10]}
-};
-const chipOrder=['entrance','aisle','mandapam','stage','gallery','dining'];
-
-const ICONS=['<svg viewBox="0 0 32 32"><path d="M16 4c5 5 8 8 8 12a8 8 0 0 1-16 0c0-4 3-7 8-12z"/><path d="M13 18a3 3 0 0 0 3 3"/></svg>', '<svg viewBox="0 0 32 32"><path d="M6 12h20l-2 14H8z"/><path d="M11 12V8h10v4"/><path d="M12 18h8"/></svg>', '<svg viewBox="0 0 32 32"><path d="M4 26V12l12-8 12 8v14z"/><path d="M13 26v-8h6v8"/></svg>', '<svg viewBox="0 0 32 32"><rect x="5" y="5" width="22" height="22" rx="3"/><path d="M12 22V10h5a3.500 3.500 0 0 1 0 7h-5"/></svg>', '<svg viewBox="0 0 32 32"><path d="M18 3 8 18h7l-2 11 11-16h-7z"/></svg>', '<svg viewBox="0 0 32 32"><rect x="4" y="9" width="24" height="16" rx="3"/><circle cx="16" cy="17" r="4.500"/><path d="M11 9l1.500-3h7L21 9"/></svg>'];
-$('svc').innerHTML=services.map((s,i)=>`<div>${ICONS[i]}<h3>${s[0]}</h3><p>${s[1]}</p></div>`).join('');
+$('svc').innerHTML=services.map(s=>`<div>${ICON[s[0]]}<h3>${s[1]}</h3><p>${s[2]}</p></div>`).join('');
 $('tiers').innerHTML=tiers.map(x=>`<div class="tier${x.pick?' pick':''}">${x.pick?'<span class="tag">Most chosen</span>':''}<h3>${x.t}</h3><div><div class="price">${x.p}</div><span class="per">${x.u}</span></div><ul>${x.l.map(i=>`<li>${i}</li>`).join('')}</ul><a class="btn wa ${x.pick?'gold':'line'}" href="#" target="_blank" rel="noopener" data-pkg="${x.t}">Enquire on WhatsApp</a></div>`).join('');
-$('spreads').insertAdjacentHTML('beforeend',spaces.map(s=>`<article class="spread reveal"><figure class="shot"><img data-shot="${s.v}" alt="3D render: ${s.t}" width="960" height="640"></figure><div><span class="ta">${s.ta}</span><h3>${s.t}</h3><p style="margin-top:14px">${s.d}</p><div class="dl">${s.f.map(f=>`<div><b>${f[0]}</b>${f[1]}</div>`).join('')}</div><button class="link" data-view="${s.v}">Walk through in 3D →</button></div></article>`).join(''));
-const gals=[['gallery','The grand hall','hall'],['mandapam','The mandapam','stage'],['dining','The dining hall','dining'],['stage','From the stage','stage'],['entrance','The entrance','hall'],['aisle','Down the aisle','hall']];
-$('gal').innerHTML=gals.map(g=>`<figure class="gi" data-cat="${g[2]}"><button type="button" data-lb aria-label="Enlarge: ${g[1]}"><img data-shot="${g[0]}" alt="3D render: ${g[1]}" width="960" height="640"><figcaption>${g[1]}</figcaption></button></figure>`).join('');
+$('spreads').insertAdjacentHTML('beforeend',spaces.map(s=>`<article class="spread reveal"><figure class="shot"><img src="${IMG+s.i}.jpg" alt="${s.t} at Pravas Palace" width="640" height="360" loading="lazy"></figure><div><span class="ta">${s.ta}</span><h3>${s.t}</h3><p style="margin-top:14px">${s.d}</p><div class="dl">${s.f.map(f=>`<div><b>${f[0]}</b>${f[1]}</div>`).join('')}</div><a class="link" href="#film">See it in the walkthrough →</a></div></article>`).join(''));
+$('gal').innerHTML=gals.map(g=>`<figure class="gi" data-cat="${g[2]}"><button type="button" data-lb aria-label="Enlarge: ${g[1]}"><img src="${IMG+g[0]}.jpg" alt="${g[1]}" width="640" height="360" loading="lazy"><figcaption>${g[1]}</figcaption></button></figure>`).join('');
 $('tabs').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;document.querySelectorAll('#tabs button').forEach(x=>x.setAttribute('aria-pressed',x===b));document.querySelectorAll('.gi').forEach(f=>f.hidden=b.dataset.cat!=='all'&&f.dataset.cat!==b.dataset.cat);});
 const lb=$('lb');$('gal').addEventListener('click',e=>{const b=e.target.closest('[data-lb]');if(!b)return;lb.querySelector('img').src=b.querySelector('img').src;lb.showModal();});
 lb.addEventListener('click',e=>{if(e.target===lb||e.target.tagName==='BUTTON')lb.close();});
-$('chips').innerHTML=chipOrder.map(k=>`<button data-view="${k}" aria-pressed="false">${views[k].n}</button>`).join('');
 
-/* ---------- nav + reveal ---------- */
-const nav=$('nav');addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>60),{passive:true});
+/* nav + reveal */
+const nav=$('nav'),fab=document.querySelector('.fab');const sc=()=>{nav.classList.toggle('solid',scrollY>60);fab.classList.toggle('off',scrollY<innerHeight*.6);};addEventListener('scroll',sc,{passive:true});sc();
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-/* ---------- 3D hall ---------- */
-const hero=document.querySelector('.hero');
-let go=()=>{};
-if(!window.THREE){hero.insertAdjacentHTML('beforeend','<div class="nogl">The 3D tour could not load on this device.</div>');$('enter').style.display='none';}
-else try{
-const R=THREE,canvas=$('gl');
-const renderer=new R.WebGLRenderer({canvas,antialias:true});
-renderer.setPixelRatio(Math.min(devicePixelRatio,1.6));
-renderer.outputEncoding=R.sRGBEncoding;renderer.toneMapping=R.ACESFilmicToneMapping;renderer.toneMappingExposure=.95;
-const scene=new R.Scene();scene.background=new R.Color(0x14060a);scene.fog=new R.Fog(0x2a1210,40,110);
-const cam=new R.PerspectiveCamera(62,1,.1,220);
-let seed=20261120;const rnd=()=>(seed=seed*16807%2147483647)/2147483647;
-const PI=Math.PI;
-function ctex(w,h,fn,rep){const c=document.createElement('canvas');c.width=w;c.height=h;fn(c.getContext('2d'),w,h);const t=new R.CanvasTexture(c);t.encoding=R.sRGBEncoding;t.anisotropy=8;if(rep){t.wrapS=t.wrapT=R.RepeatWrapping;t.repeat.set(rep[0],rep[1]);}return t;}
-const M=(c,o)=>new R.MeshStandardMaterial(Object.assign({color:c,roughness:.7,metalness:0},o||{}));
-const B=(c,o)=>new R.MeshBasicMaterial(Object.assign({color:c},o||{}));
-function add(par,geo,mat,x,y,z,rx,ry,rz){const m=new R.Mesh(geo,mat);m.position.set(x||0,y||0,z||0);m.rotation.set(rx||0,ry||0,rz||0);par.add(m);return m;}
+/* scroll film: scrolling moves the video forward and backward */
+const CH=[[0,'Arrival','The Pravas Palace building'],[6,'The grand hall','A crystal chandelier over the stage'],[11,'Grand modern lighting','Warm lights across the ceiling'],[17,'Lift facilities','A well-maintained lift'],[21,'Fully centralised AC','Cool, comfortable seating'],[29,'1000+ chairs','Comfortable seating for every guest'],[35,'Kalyana Vinayagar','Inside the compound wall'],[42,'Power backup unit','Lights and AC stay on'],[45,'Big car parking','Inside the compound wall'],[52,'The dining hall','500 seating capacity'],[60,'Luxury rooms','Rest and get ready'],[66,'The hall, once more','Balcony, chandelier and seating']];
+const film=$('film'),fv=$('fv'),cap=$('fcap');
+if(matchMedia('(prefers-reduced-motion: reduce)').matches){film.classList.add('static');fv.controls=true;fv.muted=true;}
+else{
+ let target=0,cur=0,idx=-1,on=false;
+ const dur=()=>fv.duration||76;
+ const set=i=>{if(i===idx)return;idx=i;cap.classList.add('swap');setTimeout(()=>{$('fkick').textContent='Chapter '+String(i+1).padStart(2,'0');$('ftitle').textContent=CH[i][1];$('fsub').textContent=CH[i][2];$('fcount').textContent=String(i+1).padStart(2,'0')+' / '+CH.length;cap.classList.remove('swap');},180);};
+ const calc=()=>{const r=film.getBoundingClientRect(),h=film.offsetHeight-innerHeight,p=Math.min(1,Math.max(0,-r.top/h));target=p*(dur()-.05);$('fbar').style.width=p*100+'%';$('fhint').style.opacity=p>.02?0:1;let k=0;CH.forEach((c,j)=>{if(target>=c[0])k=j;});set(k);};
+ addEventListener('scroll',calc,{passive:true});addEventListener('resize',calc);fv.addEventListener('loadedmetadata',calc);
+ new IntersectionObserver(es=>{on=es[0].isIntersecting;if(on)calc();}).observe(film);
+ set(0);$('ftitle').textContent=CH[0][1];$('fsub').textContent=CH[0][2];
+ (function loop(){requestAnimationFrame(loop);if(!on)return;cur+=(target-cur)*.12;if(Math.abs(cur-target)<.01)cur=target;if(!fv.seeking&&Math.abs(fv.currentTime-cur)>.02)fv.currentTime=cur;})();
+}
 
-/* textures */
-const marbleFn=(g,w,h)=>{for(let i=0;i<4;i++)for(let j=0;j<4;j++){g.fillStyle=(i+j)%2?'#e9dcc7':'#f4ece0';g.fillRect(i*256,j*256,256,256);}
-  g.lineCap='round';for(let k=0;k<70;k++){g.strokeStyle=`rgba(${120+rnd()*40},${95+rnd()*30},${70},${.08+rnd()*.14})`;g.lineWidth=.6+rnd()*1.6;g.beginPath();let x=rnd()*w,y=rnd()*h;g.moveTo(x,y);for(let s=0;s<7;s++){x+=rnd()*110-30;y+=rnd()*110-55;g.lineTo(x,y);}g.stroke();}
-  g.strokeStyle='rgba(176,140,80,.55)';g.lineWidth=3;for(let i=0;i<=4;i++){g.beginPath();g.moveTo(i*256,0);g.lineTo(i*256,h);g.moveTo(0,i*256);g.lineTo(w,i*256);g.stroke();}
-  g.fillStyle='rgba(176,140,80,.5)';for(let i=0;i<=4;i++)for(let j=0;j<=4;j++){g.save();g.translate(i*256,j*256);g.rotate(PI/4);g.fillRect(-14,-14,28,28);g.restore();}};
-const marble=ctex(1024,1024,marbleFn,[7,12]);
-const marble2=ctex(1024,1024,marbleFn,[5,8]);
-const wallFn=(g,w,h)=>{const gr=g.createLinearGradient(0,0,0,h);gr.addColorStop(0,'#efe1c6');gr.addColorStop(.75,'#f5ead8');gr.addColorStop(.751,'#d8c09a');gr.addColorStop(1,'#cdb38b');g.fillStyle=gr;g.fillRect(0,0,w,h);
-  g.fillStyle='#c9a25b';g.fillRect(0,h*.745,w,6);g.fillRect(0,0,w,14);g.fillRect(0,18,w,3);
-  g.strokeStyle='rgba(176,140,80,.55)';g.lineWidth=2;g.strokeRect(40,70,w-80,h*.6);g.strokeRect(54,84,w-108,h*.6-28);
-  g.strokeRect(40,h*.79,w-80,h*.16);};
-const wallTex=ctex(512,512,wallFn,[9,1]),wallTex2=ctex(512,512,wallFn,[4,1]);
-const cofferFn=(g,w,h)=>{g.fillStyle='#e9d9bb';g.fillRect(0,0,w,h);const s=w/2;for(let i=0;i<2;i++)for(let j=0;j<2;j++){const x=i*s,y=j*s;g.fillStyle='#dcc59d';g.fillRect(x+18,y+18,s-36,s-36);g.fillStyle='#f3e8d3';g.fillRect(x+36,y+36,s-72,s-72);g.strokeStyle='#c9a25b';g.lineWidth=4;g.strokeRect(x+18,y+18,s-36,s-36);g.lineWidth=2;g.strokeRect(x+36,y+36,s-72,s-72);
-  g.fillStyle='#c9a25b';g.beginPath();g.arc(x+s/2,y+s/2,22,0,7);g.fill();g.fillStyle='#f3e8d3';g.beginPath();g.arc(x+s/2,y+s/2,10,0,7);g.fill();}};
-const coffer=ctex(512,512,cofferFn,[6,10]),coffer2=ctex(512,512,cofferFn,[4,6]);
-const fabric=ctex(512,256,(g,w,h)=>{for(let x=0;x<w;x++){const v=.55+.45*Math.sin(x/w*PI*24);g.fillStyle=`rgb(${Math.round(96+60*v)},${Math.round(14+12*v)},${Math.round(30+16*v)})`;g.fillRect(x,0,1,h);}
-  g.fillStyle='#c9a25b';g.fillRect(0,0,w,10);g.fillRect(0,h-8,w,8);},[3,1]);
-const skirt=ctex(512,64,(g,w,h)=>{for(let x=0;x<w;x++){const v=.5+.5*Math.sin(x/w*PI*40);g.fillStyle=`rgb(${Math.round(110+60*v)},${Math.round(18+12*v)},${Math.round(36+14*v)})`;g.fillRect(x,0,1,h);}g.fillStyle='#d8b064';g.fillRect(0,0,w,8);g.fillRect(0,h-6,w,6);},[4,1]);
-const carpet=ctex(128,1024,(g,w,h)=>{g.fillStyle='#8e1a2c';g.fillRect(0,0,w,h);g.fillStyle='#c9a25b';g.fillRect(6,0,6,h);g.fillRect(w-12,0,6,h);g.fillStyle='#a32638';for(let y=0;y<h;y+=64){g.save();g.translate(w/2,y+32);g.rotate(PI/4);g.fillRect(-14,-14,28,28);g.restore();}
-  g.fillStyle='#c9a25b';for(let y=0;y<h;y+=64){g.beginPath();g.arc(w/2,y+32,4,0,7);g.fill();}},[1,6]);
-const glowT=ctex(128,128,(g,w,h)=>{const r=g.createRadialGradient(64,64,0,64,64,64);r.addColorStop(0,'rgba(255,240,205,1)');r.addColorStop(.25,'rgba(255,205,120,.55)');r.addColorStop(1,'rgba(255,170,80,0)');g.fillStyle=r;g.fillRect(0,0,w,h);});
-const jali=ctex(256,512,(g,w,h)=>{g.beginPath();g.moveTo(0,h);g.lineTo(0,w/2);g.arc(w/2,w/2,w/2,PI,0);g.lineTo(w,h);g.closePath();g.save();g.clip();
-  const gr=g.createLinearGradient(0,0,0,h);gr.addColorStop(0,'#ffe2a8');gr.addColorStop(1,'#d27c2c');g.fillStyle=gr;g.fillRect(0,0,w,h);
-  g.strokeStyle='rgba(90,30,20,.85)';g.lineWidth=7;for(let k=-h;k<h*2;k+=34){g.beginPath();g.moveTo(0,k);g.lineTo(w,k+w);g.moveTo(w,k);g.lineTo(0,k+w);g.stroke();}
-  g.restore();g.strokeStyle='#c9a25b';g.lineWidth=14;g.beginPath();g.moveTo(7,h);g.lineTo(7,w/2);g.arc(w/2,w/2,w/2-7,PI,0);g.lineTo(w-7,h);g.stroke();});
-const night=ctex(256,512,(g,w,h)=>{const gr=g.createLinearGradient(0,0,0,h);gr.addColorStop(0,'#0d1030');gr.addColorStop(.7,'#3a1a3a');gr.addColorStop(1,'#1a0d12');g.fillStyle=gr;g.fillRect(0,0,w,h);g.fillStyle='#ffe2a8';for(let i=0;i<40;i++){g.globalAlpha=rnd();g.fillRect(rnd()*w,rnd()*h*.6,2,2);}g.globalAlpha=1;
-  for(let i=0;i<9;i++){g.fillStyle='rgba(255,200,110,.9)';g.beginPath();g.arc(20+i*27,h*.62+Math.sin(i)*6,4,0,7);g.fill();}});
-
-/* materials */
-const gold=M(0xd9b46a,{metalness:.5,roughness:.3,emissive:0x3a2408});
-const ivory=M(0xf4ead9,{roughness:.55});
-const cloth=M(0xfbf7ef,{roughness:.85});
-const satin=M(0xc9a25b,{metalness:.25,roughness:.4,emissive:0x2a1806});
-const velvet=M(0x5a0d1c,{roughness:.85});
-const leafM=M(0x2f7d38,{roughness:.55,side:R.DoubleSide});
-const crystal=new R.MeshStandardMaterial({color:0xfff4dc,emissive:0xffd28a,emissiveIntensity:1.6,roughness:.15,metalness:.2});
-const flame=B(0xffc46b);
-const glowMat=new R.SpriteMaterial({map:glowT,color:0xffd8a0,blending:R.AdditiveBlending,depthWrite:false,transparent:true});
-function glow(par,x,y,z,s,o){const sp=new R.Sprite(glowMat.clone());sp.material.opacity=o||1;sp.position.set(x,y,z);sp.scale.set(s,s,1);par.add(sp);return sp;}
-
-/* shared instance collectors */
-const flowers=[],crystals=[],leaves=[];
-const flowerCols=[0xf29a14,0xffc21f,0xfff6e8,0xf07a0a,0xc8102e].map(c=>new R.Color(c));
-function strand(x0,y0,z0,x1,y1,z1,sag,step,col){const n=Math.max(2,Math.round(Math.hypot(x1-x0,y1-y0,z1-z0)/step));for(let i=0;i<=n;i++){const t=i/n;flowers.push([x0+(x1-x0)*t,y0+(y1-y0)*t-Math.sin(t*PI)*sag,z0+(z1-z0)*t,col(i)]);}}
-function chairs(par,list){const parts=[[new R.BoxGeometry(.5,.46,.5),cloth,[0,.23,0]],[new R.BoxGeometry(.5,.07,.5),cloth,[0,.5,0]],[new R.BoxGeometry(.5,.66,.07),cloth,[0,.86,.215]],[new R.BoxGeometry(.53,.14,.09),satin,[0,.72,.22]]];
-  const d=new R.Object3D();parts.forEach(([geo,mat,o])=>{const m=new R.InstancedMesh(geo,mat,list.length),off=new R.Matrix4().makeTranslation(o[0],o[1],o[2]);list.forEach((c,i)=>{d.position.set(c[0],0,c[1]);d.rotation.set(0,c[2]||0,0);d.updateMatrix();m.setMatrixAt(i,d.matrix.clone().multiply(off));});par.add(m);});}
-function banana(par,x,z,s){const g=new R.Group();g.position.set(x,0,z);g.scale.setScalar(s);par.add(g);
-  add(g,new R.CylinderGeometry(.11,.17,3.2,10),M(0x5b7a2a,{roughness:.8}),0,1.6,0);
-  for(let i=0;i<7;i++){const a=i/7*PI*2+rnd()*.4,l=new R.Mesh(new R.PlaneGeometry(.62,2.6),leafM);l.position.set(Math.cos(a)*.6,3.3,Math.sin(a)*.6);l.rotation.set(0,-a+PI/2,0);l.rotateX(-.95-rnd()*.3);g.add(l);}
-  for(let i=0;i<12;i++)add(g,new R.SphereGeometry(.08,6,5),M(0xb5c23a,{roughness:.6}),Math.cos(i)*.16,2.2+(i%4)*.1,Math.sin(i)*.16);}
-function lamp(par,x,z,h){const g=new R.Group();g.position.set(x,0,z);par.add(g);
-  add(g,new R.CylinderGeometry(.08,.34,.22,20),gold,0,.11,0);add(g,new R.CylinderGeometry(.03,.04,h,10),gold,0,h/2,0);
-  [[.32,h*.55],[.24,h*.8],[.16,h]].forEach(([r,y])=>{add(g,new R.CylinderGeometry(r,r*.6,.08,20),gold,0,y,0);for(let k=0;k<5;k++){const a=k/5*PI*2;add(g,new R.SphereGeometry(.028,6,5),flame,Math.cos(a)*r*.9,y+.07,Math.sin(a)*r*.9);}glow(g,0,y+.08,0,r*4,.5);});
-  add(g,new R.ConeGeometry(.05,.18,10),gold,0,h+.12,0);}
-function chandelier(par,x,y,z,s){const g=new R.Group();g.position.set(x,y,z);g.scale.setScalar(s);par.add(g);
-  add(g,new R.CylinderGeometry(.03,.03,10-y,6),gold,0,(10-y)/2/s,0);
-  [[1.25,0,30],[.88,.45,22],[.5,.85,14]].forEach(([r,yy,n])=>{const ring=add(g,new R.TorusGeometry(r,.035,8,48),gold,0,yy,0,PI/2);
-    for(let k=0;k<n;k++){const a=k/n*PI*2;crystals.push([x+Math.cos(a)*r*s,y+(yy+.08)*s,z+Math.sin(a)*r*s,.055*s]);for(let d=1;d<=3;d++)crystals.push([x+Math.cos(a)*r*s,y+(yy-d*.13)*s,z+Math.sin(a)*r*s,(.04-d*.006)*s]);}});
-  add(g,new R.SphereGeometry(.22,16,12),gold,0,-.25,0);glow(g,0,.2,0,5,.3);glow(g,0,.2,0,1.8,.7);}
-
-/* ======== MAIN HALL ======== */
-const hall=new R.Group();scene.add(hall);
-const fl=add(hall,new R.PlaneGeometry(30,52),M(0xffffff,{map:marble,roughness:.3}),0,0,0,-PI/2);
-add(hall,new R.PlaneGeometry(52,10),M(0xffffff,{map:wallTex,roughness:.8}),-15,5,0,0,PI/2);
-add(hall,new R.PlaneGeometry(52,10),M(0xffffff,{map:wallTex,roughness:.8}),15,5,0,0,-PI/2);
-add(hall,new R.PlaneGeometry(30,10),M(0xffffff,{map:wallTex2,roughness:.8}),0,5,26,0,PI);
-add(hall,new R.PlaneGeometry(30,10),M(0xffffff,{map:wallTex2,roughness:.8}),0,5,-26);
-add(hall,new R.PlaneGeometry(30,52),M(0xffffff,{map:coffer,roughness:.8}),0,10,0,PI/2);
-const cove=B(0xffdca6);[-14.7,14.7].forEach(x=>add(hall,new R.BoxGeometry(.15,.06,52),cove,x,9.65,0));
-add(hall,new R.BoxGeometry(1.4,.06,46),B(0xd9b98a),0,9.97,0);
-/* pillars + jali niches */
-const pil=new R.CylinderGeometry(.42,.42,10,28),ring=new R.TorusGeometry(.46,.06,8,28),base=new R.BoxGeometry(1.1,.6,1.1),capG=new R.BoxGeometry(1.1,.35,1.1);
-for(let z=-20;z<=22;z+=6)[-14.35,14.35].forEach(x=>{add(hall,pil,ivory,x,5,z);add(hall,base,gold,x,.3,z);add(hall,capG,gold,x,9.6,z);[1.2,3.4,8.9].forEach(y=>add(hall,ring,gold,x,y,z,PI/2));});
-const jm=new R.MeshBasicMaterial({map:jali,transparent:true});
-for(let z=-17;z<=19;z+=6)[-1,1].forEach(s=>{const n=add(hall,new R.PlaneGeometry(2.1,4.2),jm,s*14.96,4.7,z,0,-s*PI/2);glow(hall,s*14.4,4.6,z,3.6,.35);});
-/* entrance arch */
-add(hall,new R.PlaneGeometry(4.6,6.2),B(0xffffff,{map:night}),0,3.1,25.95,0,PI);
-add(hall,new R.TorusGeometry(2.45,.16,10,40,PI),gold,0,3.7,25.9,0,PI);
-[-2.45,2.45].forEach(x=>add(hall,new R.BoxGeometry(.32,3.7,.3),gold,x,1.85,25.9));
-strand(-2.5,6.3,25.7,2.5,6.3,25.7,.6,.12,i=>flowerCols[i%2?1:0]);
-/* aisle */
-add(hall,new R.PlaneGeometry(3,40),M(0xffffff,{map:carpet,roughness:.95}),0,.012,3,-PI/2);
-for(let z=-13;z<=19;z+=4)[-2,2].forEach(x=>lamp(hall,x,z,1.25));
-for(let z=-16;z<=23;z+=.5)[-1.62,1.62].forEach(x=>flowers.push([x+(rnd()-.5)*.1,.04,z,flowerCols[rnd()<.5?0:2]]));
-/* chairs */
-const cl=[];for(let z=-13.6;z<=17;z+=1.35)for(let x=2.4;x<=13;x+=.74){cl.push([x,z]);cl.push([-x,z]);}chairs(hall,cl);
-/* chandeliers */
-[-14,-4,6,16].forEach(z=>chandelier(hall,0,7.4,z,1));
-[-9,1,11].forEach(z=>[-8,8].forEach(x=>chandelier(hall,x,8.1,z,.6)));
-/* stage */
-const st=new R.Group();hall.add(st);
-add(st,new R.BoxGeometry(18,1,9),[M(0xffffff,{map:skirt}),M(0xffffff,{map:skirt}),M(0x5e0c1a,{roughness:.95}),velvet,M(0xffffff,{map:skirt}),M(0xffffff,{map:skirt})],0,.5,-21.5);
-add(st,new R.BoxGeometry(18.1,.08,.1),gold,0,1,-17);
-for(let k=0;k<3;k++){const h=(k+1)*.33;add(st,new R.BoxGeometry(4.4,h,.42),M(0x8a1a2c,{roughness:.95}),0,h/2,-15.75-k*.42);add(st,new R.BoxGeometry(4.4,.03,.03),gold,0,h,-15.54-k*.42);}
-/* backdrop */
-add(st,new R.PlaneGeometry(26,10),M(0xffffff,{map:fabric,roughness:.9}),0,5,-25.95);
-add(st,new R.TorusGeometry(4.6,.14,10,48,PI),gold,0,5.2,-25.6);[-4.6,4.6].forEach(x=>add(st,new R.BoxGeometry(.28,4.2,.2),gold,x,3.1,-25.6));
-for(let x=-12;x<=12.01;x+=.3){const ci=Math.round((x+12)/.3)%5,top=9.6;if(Math.abs(x)<4.4){const yt=1+4.2+Math.sqrt(Math.max(0,4.6*4.6-x*x));strand(x,top,-25.4,x,yt+.3,-25.4,0,.15,()=>flowerCols[ci]);}else strand(x,top,-25.4,x,1.15,-25.4,0,.15,()=>flowerCols[ci]);}
-for(let k=0;k<4;k++)strand(-13,9.5-k*.18,-25.2,13,9.5-k*.18,-25.2,.9,.13,i=>flowerCols[(i+k)%3]);
-/* mandapam */
-const mp=new R.Group();mp.position.set(0,1,-21.6);st.add(mp);
-[[-3,1.9],[3,1.9],[-3,-1.9],[3,-1.9]].forEach(([x,z])=>{add(mp,new R.CylinderGeometry(.17,.17,4.4,16),gold,x,2.2,z);add(mp,new R.BoxGeometry(.6,.4,.6),gold,x,.2,z);
-  for(let i=0;i<70;i++){const a=i*.5,y=.4+i*.058;flowers.push([x+Math.cos(a)*.22,1+y,-21.6+z+Math.sin(a)*.22,flowerCols[i%2?2:0]]);}});
-add(mp,new R.BoxGeometry(7,.36,4.6),gold,0,4.58,0);
-add(mp,new R.BoxGeometry(7.3,.12,4.9),gold,0,4.82,0);
-const dome=add(mp,new R.SphereGeometry(2,40,20,0,PI*2,0,PI/2),gold,0,4.86,0);dome.scale.y=.8;
-add(mp,new R.ConeGeometry(.16,.7,14),gold,0,6.8,0);add(mp,new R.SphereGeometry(.12,12,10),gold,0,6.45,0);
-for(let k=0;k<3;k++){strand(-3,5.4-k*.2,-19.6,3,5.4-k*.2,-19.6,.55+k*.12,.11,i=>flowerCols[(i+k)%3]);}
-for(let x=-3.4;x<=3.41;x+=.34)strand(x,4.38,-19.3,x,3.6+Math.cos(x*1.2)*.25,-19.3,0,.12,i=>flowerCols[i%2?2:1]);
-/* couple seat */
-add(mp,new R.BoxGeometry(2.6,.5,.85),velvet,0,.25,-.9);add(mp,new R.BoxGeometry(2.4,.14,.8),M(0x9a2236,{roughness:.7}),0,.56,-.9);
-add(mp,new R.BoxGeometry(2.9,1.6,.16),gold,0,1.1,-1.35);add(mp,new R.BoxGeometry(2.5,1.25,.06),velvet,0,1.05,-1.25);
-[-1.35,1.35].forEach(x=>add(mp,new R.BoxGeometry(.22,.75,.85),gold,x,.45,-.9));
-add(mp,new R.CylinderGeometry(.5,.6,.22,24),gold,0,.11,1.2);for(let k=0;k<8;k++){const a=k/8*PI*2;add(mp,new R.SphereGeometry(.035,6,5),flame,Math.cos(a)*.42,.26,1.2+Math.sin(a)*.42);}glow(mp,0,.4,1.2,1.4,.6);
-/* stage flanks */
-[-1,1].forEach(s=>{banana(st,s*8.4,-17.7,1);lamp(st,s*5.6,-17.6,1.9);lamp(st,s*8.2,-24.6,2.2);});
-/* stage light */
-const spot=new R.SpotLight(0xffe0b0,1.0,40,.42,.6,1.2);spot.position.set(0,9.5,-10);spot.target.position.set(0,1,-22);hall.add(spot,spot.target);
-
-/* ======== DINING HALL ======== */
-const DX=90,din=new R.Group();din.position.x=DX;scene.add(din);
-add(din,new R.PlaneGeometry(22,34),M(0xffffff,{map:marble2,roughness:.3}),0,0,0,-PI/2);
-add(din,new R.PlaneGeometry(34,6),M(0xffffff,{map:wallTex2,roughness:.8}),-11,3,0,0,PI/2);
-add(din,new R.PlaneGeometry(34,6),M(0xffffff,{map:wallTex2,roughness:.8}),11,3,0,0,-PI/2);
-add(din,new R.PlaneGeometry(22,6),M(0xffffff,{map:wallTex2,roughness:.8}),0,3,-17);
-add(din,new R.PlaneGeometry(22,6),M(0xffffff,{map:wallTex2,roughness:.8}),0,3,17,0,PI);
-add(din,new R.PlaneGeometry(22,34),M(0xffffff,{map:coffer2,roughness:.8}),0,6,0,PI/2);
-for(let z=-13;z<=13;z+=6.5)[-1,1].forEach(s=>{add(din,new R.PlaneGeometry(1.8,3.4),jm,s*10.96,2.9,z,0,-s*PI/2);glow(din,s*10.5,2.8,z,3,.3);});
-const tumbler=M(0xdedfe3,{metalness:.5,roughness:.25}),dcl=[];
-[-7.5,-3.2,3.2,7.5].forEach(tx=>{add(din,new R.BoxGeometry(1.1,.76,26),cloth,tx,.38,0);add(din,new R.BoxGeometry(1.12,.04,26.02),satin,tx,.74,0);
-  for(let z=-12.4;z<=12.4;z+=.95)[-1,1].forEach(s=>{leaves.push([tx+s*.29,.765,z]);flowers.push([DX+tx+s*.47,.84,z+.25,new R.Color(0xd9dadd)]);dcl.push([tx+s*.82,z,s>0?PI/2:-PI/2]);});});
-chairs(din,dcl);
-for(let z=-12;z<=12;z+=4)[-5.35,5.35,0].forEach(x=>{const y=x===0?4.6:4.9;add(din,new R.CylinderGeometry(.01,.01,6-y,4),gold,x,(6+y)/2,z);add(din,new R.SphereGeometry(.28,18,14),crystal,x,y,z);glow(din,x,y,z,2.6,.6);});
-add(din,new R.BoxGeometry(8,1,1),tumbler,0,.5,-16.2);add(din,new R.BoxGeometry(8,.06,1.05),gold,0,1.02,-16.2);
-[-1,1].forEach(s=>banana(din,s*9.6,-15.6,.8));
-
-/* ======== instanced flowers / crystals / leaves ======== */
-{const g=new R.SphereGeometry(.075,7,5),m=new R.InstancedMesh(g,M(0xffffff,{roughness:.75}),flowers.length),d=new R.Object3D();
- flowers.forEach((f,i)=>{d.position.set(f[0],f[1],f[2]);const sc=.8+rnd()*.45;d.scale.set(sc,sc,sc);d.updateMatrix();m.setMatrixAt(i,d.matrix);m.setColorAt(i,f[3]);});scene.add(m);}
-{const m=new R.InstancedMesh(new R.OctahedronGeometry(1,0),crystal,crystals.length),d=new R.Object3D();crystals.forEach((c,i)=>{d.position.set(c[0],c[1],c[2]);d.scale.set(c[3],c[3]*1.5,c[3]);d.updateMatrix();m.setMatrixAt(i,d.matrix);});scene.add(m);}
-{const g=new R.CircleGeometry(.26,22);g.scale(1,1.7,1);const m=new R.InstancedMesh(g,M(0x2f8a3c,{roughness:.35,side:R.DoubleSide}),leaves.length),d=new R.Object3D();leaves.forEach((l,i)=>{d.position.set(DX+l[0],l[1],l[2]);d.rotation.set(-PI/2,0,PI/2);d.updateMatrix();m.setMatrixAt(i,d.matrix);});scene.add(m);}
-
-/* lights */
-scene.add(new R.HemisphereLight(0xfff0d8,0x5a2a1c,.5));scene.add(new R.AmbientLight(0xffe6c8,.12));
-[-14,-4,6,16].forEach(z=>{const p=new R.PointLight(0xffd59a,.9,34,1.6);p.position.set(0,7,z);scene.add(p);});
-[-8,8].forEach(z=>{const p=new R.PointLight(0xffd59a,.8,26,1.6);p.position.set(DX,4.5,z);scene.add(p);});
-const fill=new R.PointLight(0xffb070,.5,14,2);fill.position.set(0,2.5,-18);scene.add(fill);
-
-/* ---------- camera ---------- */
-const S={pos:new R.Vector3(),yaw:0,pitch:0};
-function aim(v){const p=new R.Vector3(...v.p),l=new R.Vector3(...v.l),d=l.clone().sub(p).normalize();return{pos:p,yaw:Math.atan2(d.x,-d.z),pitch:Math.asin(d.y)};}
-function apply(){cam.position.copy(S.pos);const c=Math.cos(S.pitch);cam.lookAt(S.pos.x+Math.sin(S.yaw)*c,S.pos.y+Math.sin(S.pitch),S.pos.z-Math.cos(S.yaw)*c);}
-function size(){const w=canvas.clientWidth,h=canvas.clientHeight;renderer.setSize(w,h,false);cam.aspect=w/h;cam.fov=w/h<.8?78:62;cam.updateProjectionMatrix();}
-
-/* renders for the space images */
-['gallery','mandapam','dining','stage','entrance','aisle'].forEach(v=>{const a=aim(views[v]);S.pos.copy(a.pos);S.yaw=a.yaw;S.pitch=a.pitch;apply();renderer.setPixelRatio(1);renderer.setSize(1200,800,false);cam.aspect=1.5;cam.fov=58;cam.updateProjectionMatrix();renderer.render(scene,cam);const u=canvas.toDataURL('image/jpeg',.86);document.querySelectorAll('[data-shot="'+v+'"]').forEach(i=>i.src=u);});
-renderer.setPixelRatio(Math.min(devicePixelRatio,1.6));
-const ro=new ResizeObserver(size);ro.observe(canvas);size();
-
-let mode='hero',anim=null,down=null,lastTouch=0,cur='entrance';
-const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-const start=aim(views.entrance);S.pos.copy(start.pos);S.yaw=start.yaw;S.pitch=start.pitch;
-const ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
-function flyTo(k){cur=k;$('now').textContent=views[k].n;document.querySelectorAll('#chips button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.view===k));
-  const to=aim(views[k]),far=to.pos.distanceTo(S.pos)>40;
-  if(far||reduce){const f=$('fade');f.style.opacity=1;setTimeout(()=>{S.pos.copy(to.pos);S.yaw=to.yaw;S.pitch=to.pitch;anim=null;f.style.opacity=0;},reduce?0:460);return;}
-  let dy=to.yaw-S.yaw;dy=Math.atan2(Math.sin(dy),Math.cos(dy));
-  anim={t0:performance.now(),dur:1900,fp:S.pos.clone(),tp:to.pos,fy:S.yaw,ty:S.yaw+dy,fpi:S.pitch,tpi:to.pitch};}
-go=k=>{if(mode!=='tour'){mode='tour';hero.classList.add('touring');}flyTo(k);};
-$('enter').onclick=()=>go('aisle');
-$('exit').onclick=()=>{mode='hero';hero.classList.remove('touring');flyTo('entrance');};
-canvas.addEventListener('pointerdown',e=>{down={x:e.clientX,y:e.clientY,yaw:S.yaw,pitch:S.pitch,t:e.pointerType};anim=null;lastTouch=performance.now();});
-addEventListener('pointermove',e=>{if(!down)return;const k=cam.fov/canvas.clientHeight*PI/180;S.yaw=down.yaw-(e.clientX-down.x)*k;if(down.t==='mouse')S.pitch=Math.max(-1.2,Math.min(1.2,down.pitch+(e.clientY-down.y)*k));lastTouch=performance.now();});
-addEventListener('pointerup',()=>down=null);addEventListener('pointercancel',()=>down=null);
-addEventListener('keydown',e=>{if(mode!=='tour')return;if(e.key==='ArrowLeft')S.yaw-=.08;if(e.key==='ArrowRight')S.yaw+=.08;if(e.key==='Escape')$('exit').click();});
-let visible=true;new IntersectionObserver(es=>visible=es[0].isIntersecting).observe(hero);
-const t0=performance.now();
-(function loop(now){requestAnimationFrame(loop);if(!visible)return;
-  if(anim){const t=Math.min(1,(now-anim.t0)/anim.dur),e=ease(t);S.pos.lerpVectors(anim.fp,anim.tp,e);S.yaw=anim.fy+(anim.ty-anim.fy)*e;S.pitch=anim.fpi+(anim.tpi-anim.fpi)*e;if(t>=1)anim=null;}
-  else if(mode==='hero'&&!reduce&&!down&&now-lastTouch>2500&&cur==='entrance'){const t=(now-t0)/1000,k=(1-Math.cos(t*.07))/2;S.pos.set(Math.sin(t*.05)*.6,1.75+k*.25,23.5-k*15);S.yaw+=(Math.sin(t*.11)*.22-S.yaw)*.02;S.pitch+=(.03-S.pitch)*.02;}
-  apply();renderer.render(scene,cam);})();
-}catch(err){console.error(err);hero.insertAdjacentHTML('beforeend','<div class="nogl">The 3D tour could not load on this device.</div>');}
-
-document.getElementById('vplay').onclick=()=>{document.getElementById('vid').innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/LTaBoJVCuFU?autoplay=1&rel=0" title="Pravas Palace hall video" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';};
-document.addEventListener('click',e=>{const b=e.target.closest('[data-view]');if(!b)return;if(!b.closest('#chips'))scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});go(b.dataset.view);});
-
-/* ---------- whatsapp ---------- */
-const WA_NUMBER='';/* hall's WhatsApp number with country code, digits only, e.g. 919876543210 */
+/* whatsapp */
+const WA_NUMBER='919789832470';/* booking number shown in the hall's film; change if the WhatsApp number differs */
 function wa(pkg){const t=pkg?`Hello Pravas Palace, I'm interested in the ${pkg} package. Is my date available?`:'Hello Pravas Palace, I would like to check date availability and rates.';return 'https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent(t);}
 document.querySelectorAll('a.wa').forEach(a=>a.href=wa(a.dataset.pkg));
 }
